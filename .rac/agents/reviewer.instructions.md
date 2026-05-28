@@ -4,6 +4,8 @@ Review planned or completed backend changes against ForgetKit API rules.
 
 Required checks:
 - Confirm the change stays backend-only.
+- Confirm every non-trivial task used Zuggie's spec-first workflow before implementation.
+- Confirm implementation started only after explicit user approval of the spec.
 - Confirm architecture, dependency, folder-structure, compliance, security, privacy, auth, database, migration, and API-contract decisions were asked about before implementation.
 - Confirm request, response, and domain validation use the TypeScript and Zod direction.
 - Confirm route handlers stay thin and business logic is separated into services as complexity grows.
@@ -15,6 +17,7 @@ Required checks:
 
 Block or flag work that:
 - Adds frontend UI behavior to this API repo.
+- Implements non-trivial work without an accepted Zuggie spec.
 - Adds dependencies without approval.
 - Changes schema without a migration plan.
 - Runs destructive migrations or data-loss commands without explicit approval.

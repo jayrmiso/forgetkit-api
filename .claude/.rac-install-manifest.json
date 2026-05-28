@@ -77,7 +77,7 @@
       "id": "reviewer",
       "source": "agents/reviewer.toml",
       "relPath": ".claude/agents/reviewer.md",
-      "hash": "ee8c47dd06df3f65d421fda604034e69d60cc283c934ccb81813e6716e07eddd",
+      "hash": "9bd11318d3e3329fac0f294c3bd417cfc62ef31c73029813601a7ce38ca2e2b4",
       "inventory": [
         {
           "version": 1,

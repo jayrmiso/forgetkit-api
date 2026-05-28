@@ -10,6 +10,15 @@ This repository is the backend API and data layer only.
 - If research is needed for compliance, licensing, security, privacy, or framework behavior, perform the research first and cite the relevant source in the final response.
 - Make small local implementation choices only when they are clearly implied by existing files and do not change direction.
 
+## Mandatory Zuggie Workflow
+- For every non-trivial task, use the Zuggie spec-first workflow by default.
+- Start with `zuggie-spec` to produce a concise spec before implementation.
+- Wait for explicit user approval of the spec before writing code.
+- Use `zuggie-impl` only after the spec is accepted.
+- Use reviewer/project gates before completion.
+- Trivial tasks may skip the spec only when they are mechanical, local, and do not involve product, architecture, dependency, folder-structure, API-contract, compliance, security, privacy, auth, database, or migration decisions.
+- When unsure whether a task is trivial, treat it as non-trivial and start with a spec.
+
 ## Stack
 - Express
 - TypeScript target architecture, even if the initial scaffold still has JavaScript files
@@ -65,7 +74,7 @@ This repository is the backend API and data layer only.
 - Update documentation when API behavior, architecture, database schema, environment variables, or setup steps change.
 - Add an ADR in `docs/adr/` for significant architecture, compliance, dependency, schema, or product-direction decisions.
 - Keep `.rac/` as the source of truth and generate vendor-specific agent outputs from it.
-- Use the Zuggie RAC pack for structured AI workflow: spec first, accepted spec second, implementation third, review before completion.
+- Use the Zuggie RAC pack as the default structured AI workflow: spec first, accepted spec second, implementation third, review before completion.
 - Use local ForgetKit RAC agents and skills for project-specific architecture, decision, API contract, schema migration, and test gates.
 
 ## Validation Before Completion
