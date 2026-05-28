@@ -1,0 +1,4 @@
+id = "researcher"
+name = "Researcher"
+description = "Researches backend framework, dependency, licensing, compliance, privacy, security, database, and auth questions before decisions"
+instructions = "./researcher.instructions.md"

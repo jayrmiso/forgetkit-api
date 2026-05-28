@@ -1,0 +1,16 @@
+# DO NOT EDIT; managed by rac
+prefix_rule(
+  pattern = ["gh", "pr", "merge"],
+  decision = "forbidden",
+  justification = "Main is protected; merging requires explicit user approval.",
+)
+prefix_rule(
+  pattern = ["git", "push"],
+  decision = "forbidden",
+  justification = "Use PR-style workflow; pushing requires explicit user approval.",
+)
+prefix_rule(
+  pattern = ["npm", "install"],
+  decision = "forbidden",
+  justification = "New dependencies require user approval and risk explanation.",
+)

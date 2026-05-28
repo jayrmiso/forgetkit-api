@@ -1,0 +1,17 @@
+[[rule]]
+id = "deny-git-push"
+decision = "forbidden"
+justification = "Use PR-style workflow; pushing requires explicit user approval."
+command = ["git", "push"]
+
+[[rule]]
+id = "deny-gh-pr-merge"
+decision = "forbidden"
+justification = "Main is protected; merging requires explicit user approval."
+command = ["gh", "pr", "merge"]
+
+[[rule]]
+id = "deny-npm-install"
+decision = "forbidden"
+justification = "New dependencies require user approval and risk explanation."
+command = ["npm", "install"]

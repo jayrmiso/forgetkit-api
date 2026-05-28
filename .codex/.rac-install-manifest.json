@@ -1,0 +1,226 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "codex",
+      "kind": "agent",
+      "id": "api-reviewer",
+      "source": "agents/api-reviewer.toml",
+      "relPath": ".codex/agents/api-reviewer.toml",
+      "hash": "87e44db18c3f9eecaf9913f35501a9300371cf3b0ccd6664ccab326e396daecc",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "toml",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "codex",
+      "kind": "agent",
+      "id": "architect",
+      "source": "agents/architect.toml",
+      "relPath": ".codex/agents/architect.toml",
+      "hash": "e3602d805f11854edf75c67deb88ca9d267b6267204cc9fa9db43ad8bb0de62d",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "toml",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "codex",
+      "kind": "agent",
+      "id": "contract-reviewer",
+      "source": "agents/contract-reviewer.toml",
+      "relPath": ".codex/agents/contract-reviewer.toml",
+      "hash": "d58d7d66f93ccf4948590067b15e3d85dde7d352ae9ed9e7066d154a780a7911",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "toml",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "codex",
+      "kind": "agent",
+      "id": "researcher",
+      "source": "agents/researcher.toml",
+      "relPath": ".codex/agents/researcher.toml",
+      "hash": "aa1964226ddc2f47f2c90a6ea664ed78f248581ec13d24e27e22f6528ecaa8f4",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "toml",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "codex",
+      "kind": "agent",
+      "id": "reviewer",
+      "source": "agents/reviewer.toml",
+      "relPath": ".codex/agents/reviewer.toml",
+      "hash": "02ba417d6844b084996b97486342c3428b02977f4b0da17a99cc5f6eee521802",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "toml",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "codex",
+      "kind": "rule",
+      "id": "deny-gh-pr-merge",
+      "source": "rules/protected-workflow.toml",
+      "relPath": ".codex/rules/protected-workflow.rules",
+      "hash": "67202b881968d80288216ee9fdebfaaa18bc9f4c868a0504732cb25e29d62b21",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "file",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "codex",
+      "kind": "rule",
+      "id": "deny-git-push",
+      "source": "rules/protected-workflow.toml",
+      "relPath": ".codex/rules/protected-workflow.rules",
+      "hash": "67202b881968d80288216ee9fdebfaaa18bc9f4c868a0504732cb25e29d62b21",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "file",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "codex",
+      "kind": "rule",
+      "id": "deny-npm-install",
+      "source": "rules/protected-workflow.toml",
+      "relPath": ".codex/rules/protected-workflow.rules",
+      "hash": "67202b881968d80288216ee9fdebfaaa18bc9f4c868a0504732cb25e29d62b21",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "file",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "zuggie",
+      "target": "codex",
+      "kind": "agent",
+      "id": "zuggie-debugger",
+      "source": "agents/zuggie-debugger.toml",
+      "relPath": ".codex/agents/zuggie-debugger.toml",
+      "hash": "2e0bc1e744212167af16cce5edc27e5d05e97f2dabf118d91017ed7eb86e966b",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "toml",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "zuggie",
+      "target": "codex",
+      "kind": "agent",
+      "id": "zuggie-engineer",
+      "source": "agents/zuggie-engineer.toml",
+      "relPath": ".codex/agents/zuggie-engineer.toml",
+      "hash": "5f172309ffef7e6b3beaf1b82ccfec433d531d2076de16948b1d75f79b96d809",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "toml",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "zuggie",
+      "target": "codex",
+      "kind": "agent",
+      "id": "zuggie-explorer",
+      "source": "agents/zuggie-explorer.toml",
+      "relPath": ".codex/agents/zuggie-explorer.toml",
+      "hash": "5caddcf146c437fc626ccd75e886fc891802d4afdda268bee8b85db4e1150ba3",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "toml",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "zuggie",
+      "target": "codex",
+      "kind": "agent",
+      "id": "zuggie-reviewer",
+      "source": "agents/zuggie-reviewer.toml",
+      "relPath": ".codex/agents/zuggie-reviewer.toml",
+      "hash": "1eaeb76b44745c578d6b37dc71346a154880c7b63282af190c719e215fa6339d",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "toml",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "zuggie",
+      "target": "codex",
+      "kind": "agent",
+      "id": "zuggie-tech-lead",
+      "source": "agents/zuggie-tech-lead.toml",
+      "relPath": ".codex/agents/zuggie-tech-lead.toml",
+      "hash": "d07d76640a4b603f0db936da01426a56e5d49b6fa435a5eb8520a1d5b07b355b",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "toml",
+          "selector": "$"
+        }
+      ]
+    }
+  ]
+}

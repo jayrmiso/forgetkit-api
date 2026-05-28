@@ -1,0 +1,4 @@
+id = "reviewer"
+name = "Reviewer"
+description = "Reviews ForgetKit API changes against backend governance, architecture, validation, schema, and migration rules"
+instructions = "./reviewer.instructions.md"

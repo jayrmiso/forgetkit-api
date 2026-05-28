@@ -1,0 +1,422 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "claude",
+      "kind": "agent",
+      "id": "api-reviewer",
+      "source": "agents/api-reviewer.toml",
+      "relPath": ".claude/agents/api-reviewer.md",
+      "hash": "4c4cc81fc3d7ad26dd00a0ea8077ca673fbf88e2ba87923c39cd9610aa773372",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "claude",
+      "kind": "agent",
+      "id": "architect",
+      "source": "agents/architect.toml",
+      "relPath": ".claude/agents/architect.md",
+      "hash": "bcac71919cce1dbcd4acf962fb95e0e3a9a48c89620f446c59171ec4aa08dc25",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "claude",
+      "kind": "agent",
+      "id": "contract-reviewer",
+      "source": "agents/contract-reviewer.toml",
+      "relPath": ".claude/agents/contract-reviewer.md",
+      "hash": "6ed198d6c82fcef3022be7a1f077f757436c11a6e792908036bbfddc4a7f6588",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "claude",
+      "kind": "agent",
+      "id": "researcher",
+      "source": "agents/researcher.toml",
+      "relPath": ".claude/agents/researcher.md",
+      "hash": "ee1cbffb4e8041c291f8297821f3d6a7917a794d5db2a3941480d1d366152b6d",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "claude",
+      "kind": "agent",
+      "id": "reviewer",
+      "source": "agents/reviewer.toml",
+      "relPath": ".claude/agents/reviewer.md",
+      "hash": "ee8c47dd06df3f65d421fda604034e69d60cc283c934ccb81813e6716e07eddd",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "claude",
+      "kind": "rule",
+      "id": "deny-gh-pr-merge",
+      "source": "rules/protected-workflow.toml",
+      "relPath": ".claude/settings.json",
+      "hash": "854abc1fa72df308f8e111ffd084ab03f6ff521e417901884e49a215322b2298",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "json",
+          "selector": "$.permissions.deny",
+          "entries": [
+            "Bash(gh pr merge *)"
+          ]
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "claude",
+      "kind": "rule",
+      "id": "deny-git-push",
+      "source": "rules/protected-workflow.toml",
+      "relPath": ".claude/settings.json",
+      "hash": "854abc1fa72df308f8e111ffd084ab03f6ff521e417901884e49a215322b2298",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "json",
+          "selector": "$.permissions.deny",
+          "entries": [
+            "Bash(git push *)"
+          ]
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "claude",
+      "kind": "rule",
+      "id": "deny-npm-install",
+      "source": "rules/protected-workflow.toml",
+      "relPath": ".claude/settings.json",
+      "hash": "854abc1fa72df308f8e111ffd084ab03f6ff521e417901884e49a215322b2298",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "json",
+          "selector": "$.permissions.deny",
+          "entries": [
+            "Bash(npm install *)"
+          ]
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "claude",
+      "kind": "skill",
+      "id": "api-contract-gate",
+      "source": "skills/api-contract-gate/SKILL.md",
+      "relPath": ".claude/skills/api-contract-gate/SKILL.md",
+      "hash": "bad1d5338c6dbf34ff1908182c4722a6efa2345908d5a40a75d8b93374c25430",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "claude",
+      "kind": "skill",
+      "id": "decision-gate",
+      "source": "skills/decision-gate/SKILL.md",
+      "relPath": ".claude/skills/decision-gate/SKILL.md",
+      "hash": "c9bc1388c2e15da0d40536a87a656c0897a0a718da20225e447564d88c5dde59",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "claude",
+      "kind": "skill",
+      "id": "project-gates",
+      "source": "skills/project-gates/checklist.md",
+      "relPath": ".claude/skills/project-gates/checklist.md",
+      "hash": "a971bb8fd9783325c0241305ed00d01a0d9a2d5d492979d99850169c45bd27d1",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "file",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "claude",
+      "kind": "skill",
+      "id": "project-gates",
+      "source": "skills/project-gates/SKILL.md",
+      "relPath": ".claude/skills/project-gates/SKILL.md",
+      "hash": "b2605cfce021a56d346678b1ba4d9f6f75388be82aa6638ff02342856e07ece6",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "claude",
+      "kind": "skill",
+      "id": "schema-migration-gate",
+      "source": "skills/schema-migration-gate/SKILL.md",
+      "relPath": ".claude/skills/schema-migration-gate/SKILL.md",
+      "hash": "73e7c6c3d35a8e99a3e9d009d8bef19301ce273903cdc764a7ac3600a54a3003",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "claude",
+      "kind": "skill",
+      "id": "test-gates",
+      "source": "skills/test-gates/SKILL.md",
+      "relPath": ".claude/skills/test-gates/SKILL.md",
+      "hash": "321248c211814cb624b291f8dbd137f7f7b038ca8b65334c48e7c6aa31476897",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "zuggie",
+      "target": "claude",
+      "kind": "agent",
+      "id": "zuggie-debugger",
+      "source": "agents/zuggie-debugger.toml",
+      "relPath": ".claude/agents/zuggie-debugger.md",
+      "hash": "3e5dc4116dbce1be1f8e4f0bce207f7815c76619e1f1234ed7edaa264643d0e5",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "zuggie",
+      "target": "claude",
+      "kind": "agent",
+      "id": "zuggie-engineer",
+      "source": "agents/zuggie-engineer.toml",
+      "relPath": ".claude/agents/zuggie-engineer.md",
+      "hash": "3699379aec93488b65fb067bd566d1ee10077da3d331208e4ab63df4d3b7432e",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "zuggie",
+      "target": "claude",
+      "kind": "agent",
+      "id": "zuggie-explorer",
+      "source": "agents/zuggie-explorer.toml",
+      "relPath": ".claude/agents/zuggie-explorer.md",
+      "hash": "dfb45e07f16581b3eb69153d79376443f070b78c929e8e830976f4fe187c80e3",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "zuggie",
+      "target": "claude",
+      "kind": "agent",
+      "id": "zuggie-reviewer",
+      "source": "agents/zuggie-reviewer.toml",
+      "relPath": ".claude/agents/zuggie-reviewer.md",
+      "hash": "a9396499d6a0d9a59817163129e3bb3f210456512f195a3365e7c2e81f1bf10b",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "zuggie",
+      "target": "claude",
+      "kind": "agent",
+      "id": "zuggie-tech-lead",
+      "source": "agents/zuggie-tech-lead.toml",
+      "relPath": ".claude/agents/zuggie-tech-lead.md",
+      "hash": "d7c695c4c460b3f300ca5e1eecc36eb1fa405218533ac160fd16ecc3318b740f",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "zuggie",
+      "target": "claude",
+      "kind": "skill",
+      "id": "zuggie-impl",
+      "source": "skills/zuggie-impl/references/security-checklist.md",
+      "relPath": ".claude/skills/zuggie-impl/references/security-checklist.md",
+      "hash": "5015b7624908066d73c83dab5018cd9d03104a581654efd4cc81ad9bb6b3f9b0",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "file",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "zuggie",
+      "target": "claude",
+      "kind": "skill",
+      "id": "zuggie-impl",
+      "source": "skills/zuggie-impl/references/testing-patterns.md",
+      "relPath": ".claude/skills/zuggie-impl/references/testing-patterns.md",
+      "hash": "e106b72fd81a8781f8a54cf48290e57b7f779126662e1702b102cbcf8847419e",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "file",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "zuggie",
+      "target": "claude",
+      "kind": "skill",
+      "id": "zuggie-impl",
+      "source": "skills/zuggie-impl/SKILL.tpl.md",
+      "relPath": ".claude/skills/zuggie-impl/SKILL.md",
+      "hash": "23cc1d37b5ad8bb165caed4da9e21f45dfa21b7b38673ed23ea4802c42b75ea3",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "zuggie",
+      "target": "claude",
+      "kind": "skill",
+      "id": "zuggie-spec",
+      "source": "skills/zuggie-spec/SKILL.tpl.md",
+      "relPath": ".claude/skills/zuggie-spec/SKILL.md",
+      "hash": "06e7206aabfa30f7853a3a20a5c03eb53c9659ef0c15cd1b9e304c0fdc42611e",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "zuggie",
+      "target": "claude",
+      "kind": "skill",
+      "id": "zuggie-structured-debug",
+      "source": "skills/zuggie-structured-debug/SKILL.tpl.md",
+      "relPath": ".claude/skills/zuggie-structured-debug/SKILL.md",
+      "hash": "078fb4855c3f8fce42cb315c42d7163638b653c5fd9075b19f1e8b4011d3832b",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    }
+  ]
+}

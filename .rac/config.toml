@@ -1,0 +1,4 @@
+[[packs]]
+id = "zuggie"
+repo = "github:raniejade/zuggie"
+ref = "v0.2.0"

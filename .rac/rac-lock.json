@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "packs": [
+    {
+      "id": "zuggie",
+      "repo": "github:raniejade/zuggie",
+      "ref": "v0.2.0",
+      "resolved": "64c8f31e3f69abf6e39b028a408ac19ddaf8c2a7"
+    }
+  ]
+}

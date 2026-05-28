@@ -1,0 +1,192 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "codex",
+      "kind": "skill",
+      "id": "api-contract-gate",
+      "source": "skills/api-contract-gate/SKILL.md",
+      "relPath": ".agents/skills/api-contract-gate/SKILL.md",
+      "hash": "bad1d5338c6dbf34ff1908182c4722a6efa2345908d5a40a75d8b93374c25430",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "codex",
+      "kind": "skill",
+      "id": "decision-gate",
+      "source": "skills/decision-gate/SKILL.md",
+      "relPath": ".agents/skills/decision-gate/SKILL.md",
+      "hash": "c9bc1388c2e15da0d40536a87a656c0897a0a718da20225e447564d88c5dde59",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "codex",
+      "kind": "skill",
+      "id": "project-gates",
+      "source": "skills/project-gates/checklist.md",
+      "relPath": ".agents/skills/project-gates/checklist.md",
+      "hash": "a971bb8fd9783325c0241305ed00d01a0d9a2d5d492979d99850169c45bd27d1",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "file",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "codex",
+      "kind": "skill",
+      "id": "project-gates",
+      "source": "skills/project-gates/SKILL.md",
+      "relPath": ".agents/skills/project-gates/SKILL.md",
+      "hash": "b2605cfce021a56d346678b1ba4d9f6f75388be82aa6638ff02342856e07ece6",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "codex",
+      "kind": "skill",
+      "id": "schema-migration-gate",
+      "source": "skills/schema-migration-gate/SKILL.md",
+      "relPath": ".agents/skills/schema-migration-gate/SKILL.md",
+      "hash": "73e7c6c3d35a8e99a3e9d009d8bef19301ce273903cdc764a7ac3600a54a3003",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "project",
+      "target": "codex",
+      "kind": "skill",
+      "id": "test-gates",
+      "source": "skills/test-gates/SKILL.md",
+      "relPath": ".agents/skills/test-gates/SKILL.md",
+      "hash": "321248c211814cb624b291f8dbd137f7f7b038ca8b65334c48e7c6aa31476897",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "zuggie",
+      "target": "codex",
+      "kind": "skill",
+      "id": "zuggie-impl",
+      "source": "skills/zuggie-impl/references/security-checklist.md",
+      "relPath": ".agents/skills/zuggie-impl/references/security-checklist.md",
+      "hash": "5015b7624908066d73c83dab5018cd9d03104a581654efd4cc81ad9bb6b3f9b0",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "file",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "zuggie",
+      "target": "codex",
+      "kind": "skill",
+      "id": "zuggie-impl",
+      "source": "skills/zuggie-impl/references/testing-patterns.md",
+      "relPath": ".agents/skills/zuggie-impl/references/testing-patterns.md",
+      "hash": "e106b72fd81a8781f8a54cf48290e57b7f779126662e1702b102cbcf8847419e",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "file",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "zuggie",
+      "target": "codex",
+      "kind": "skill",
+      "id": "zuggie-impl",
+      "source": "skills/zuggie-impl/SKILL.tpl.md",
+      "relPath": ".agents/skills/zuggie-impl/SKILL.md",
+      "hash": "4476afc036974656187bd2d9a1ec1c1fc35aed8621a855b8b2f2add3dd336076",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "zuggie",
+      "target": "codex",
+      "kind": "skill",
+      "id": "zuggie-spec",
+      "source": "skills/zuggie-spec/SKILL.tpl.md",
+      "relPath": ".agents/skills/zuggie-spec/SKILL.md",
+      "hash": "c9d37a210b4f1189a27e14aa07ec79fa022eb409c4c8c64aeb9d027fcd81342b",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    },
+    {
+      "version": 1,
+      "pack": "zuggie",
+      "target": "codex",
+      "kind": "skill",
+      "id": "zuggie-structured-debug",
+      "source": "skills/zuggie-structured-debug/SKILL.tpl.md",
+      "relPath": ".agents/skills/zuggie-structured-debug/SKILL.md",
+      "hash": "9c43d301482241c3149410200e583e14133d66aab3de0e2dce80231e12ee7faa",
+      "inventory": [
+        {
+          "version": 1,
+          "format": "markdown",
+          "selector": "$"
+        }
+      ]
+    }
+  ]
+}

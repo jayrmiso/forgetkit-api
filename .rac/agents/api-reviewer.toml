@@ -1,0 +1,4 @@
+id = "api-reviewer"
+name = "API Reviewer"
+description = "Reviews ForgetKit API route structure, validation, Prisma usage, migrations, errors, and integration test coverage"
+instructions = "./api-reviewer.instructions.md"

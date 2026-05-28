@@ -1,0 +1,4 @@
+id = "architect"
+name = "Architect"
+description = "Plans ForgetKit API architecture, folder structure, service boundaries, data model, and ADR needs before implementation"
+instructions = "./architect.instructions.md"
