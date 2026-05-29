@@ -29,6 +29,18 @@ Spawn `zuggie-explorer` agents for all codebase recon.
 - `zuggie-debugger`
 - `zuggie-reviewer`
 
+## Codex subagent discovery gate
+
+On Codex, sub-agent tooling can be deferred/lazy-loaded. Before the
+first spawn attempt, discover tools and confirm `multi_agent_v1`
+(`spawn_agent`, `wait_agent`) is available.
+
+- If missing, run tool discovery (for example via `tool_search`) for
+  "multi-agent" or "zuggie".
+- Do not claim required subagents are unavailable until after discovery.
+- If `multi_agent_v1` is still unavailable after discovery, report the
+  environment registration issue and stop.
+
 ## Hard rules
 
 - NEVER merge anything into main or master. All work happens on
