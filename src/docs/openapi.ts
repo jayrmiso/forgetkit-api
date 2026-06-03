@@ -65,10 +65,11 @@ export const openApiDocument = {
       },
       Profile: {
         type: "object",
-        required: ["id", "email", "displayName", "createdAt", "updatedAt"],
+        required: ["id", "email", "username", "displayName", "createdAt", "updatedAt"],
         properties: {
           id: { type: "string", format: "uuid" },
           email: { type: ["string", "null"], format: "email" },
+          username: { type: ["string", "null"] },
           displayName: { type: ["string", "null"] },
           createdAt: { type: "string", format: "date-time" },
           updatedAt: { type: "string", format: "date-time" },
@@ -109,6 +110,68 @@ export const openApiDocument = {
           },
         },
       },
+      AuthResolvedUser: {
+        type: "object",
+        required: ["data"],
+        properties: {
+          data: {
+            type: "object",
+            required: ["user"],
+            properties: {
+              user: {
+                type: "object",
+                required: ["email", "username", "verified"],
+                properties: {
+                  email: { type: "string", format: "email" },
+                  username: { type: ["string", "null"] },
+                  verified: { type: "boolean" },
+                },
+              },
+            },
+          },
+        },
+      },
+      VerificationStatusResponse: {
+        type: "object",
+        required: ["data"],
+        properties: {
+          data: {
+            type: "object",
+            required: ["verification"],
+            properties: {
+              verification: {
+                type: "object",
+                required: ["email", "verified", "verifiedAt"],
+                properties: {
+                  email: { type: "string", format: "email" },
+                  verified: { type: "boolean" },
+                  verifiedAt: { type: ["string", "null"], format: "date-time" },
+                },
+              },
+            },
+          },
+        },
+      },
+      ResendVerificationResponse: {
+        type: "object",
+        required: ["data"],
+        properties: {
+          data: {
+            type: "object",
+            required: ["verification"],
+            properties: {
+              verification: {
+                type: "object",
+                required: ["email", "sent"],
+                properties: {
+                  email: { type: "string", format: "email" },
+                  sent: { type: "boolean" },
+                },
+              },
+            },
+          },
+        },
+      },
       CreateWorkspaceRequest: {
         type: "object",
         required: ["name"],
@@ -142,6 +205,44 @@ export const openApiDocument = {
         responses: {
           "200": { description: "Current profile", ...json(ref("ProfileResponse")) },
           "401": { description: "Unauthorized", ...json(ref("ErrorResponse")) },
+        },
+      },
+    },
+    "/v1/auth/resolve-identifier": {
+      post: {
+        summary: "Resolve username or email to an email address",
+        requestBody: {
+          required: true,
+          content: { "application/json": { schema: { type: "object", required: ["identifier"], properties: { identifier: { type: "string" } } } } },
+        },
+        responses: {
+          "200": { description: "Resolved account", ...json(ref("AuthResolvedUser")) },
+          "400": { description: "Validation error", ...json(ref("ErrorResponse")) },
+          "404": { description: "Account not found", ...json(ref("ErrorResponse")) },
+        },
+      },
+    },
+    "/v1/auth/verification-status": {
+      get: {
+        summary: "Check whether an email has been verified",
+        parameters: [{ name: "email", in: "query", required: true, schema: { type: "string", format: "email" } }],
+        responses: {
+          "200": { description: "Verification status", ...json(ref("VerificationStatusResponse")) },
+          "400": { description: "Validation error", ...json(ref("ErrorResponse")) },
+          "404": { description: "Account not found", ...json(ref("ErrorResponse")) },
+        },
+      },
+    },
+    "/v1/auth/resend-verification": {
+      post: {
+        summary: "Resend the signup verification email",
+        requestBody: {
+          required: true,
+          content: { "application/json": { schema: { type: "object", required: ["email"], properties: { email: { type: "string", format: "email" } } } } },
+        },
+        responses: {
+          "201": { description: "Verification email resent", ...json(ref("ResendVerificationResponse")) },
+          "400": { description: "Validation error", ...json(ref("ErrorResponse")) },
         },
       },
     },

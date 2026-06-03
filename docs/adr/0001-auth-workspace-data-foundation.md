@@ -10,7 +10,7 @@ ForgetKit needs authenticated workspace persistence before AI onboarding, design
 
 ## Decision
 
-Use Supabase Auth as the identity provider. `forgetkit-api` verifies Supabase access tokens, stores local profile rows keyed by the Supabase user id, and uses Prisma against Postgres for workspace and membership persistence.
+Use Supabase Auth as the identity provider. `forgetkit-api` verifies Supabase access tokens, stores local profile rows keyed by the Supabase user id, keeps a unique lowercase username on the profile row, and uses Prisma against Postgres for workspace and membership persistence.
 
 Workspace membership is the initial tenancy boundary. Every workspace query must be scoped by authenticated profile membership.
 

@@ -12,6 +12,9 @@ Authorization: Bearer <supabase_access_token>
 
 - `GET /health`
 - `GET /v1/me`
+- `POST /v1/auth/resolve-identifier`
+- `GET /v1/auth/verification-status`
+- `POST /v1/auth/resend-verification`
 - `GET /v1/workspaces`
 - `POST /v1/workspaces`
 - `GET /v1/workspaces/:workspaceId`

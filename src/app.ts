@@ -8,6 +8,7 @@ import swaggerRoutes from "./docs/swaggerRoutes";
 import { errorHandler } from "./http/middleware/errorHandler";
 import { sendError } from "./http/responses/sendError";
 import { sendSuccess } from "./http/responses/sendSuccess";
+import authRoutes from "./modules/auth/authRoutes";
 import profileRoutes from "./modules/profiles/profileRoutes";
 import workspaceRoutes from "./modules/workspaces/workspaceRoutes";
 
@@ -33,6 +34,7 @@ app.get("/health", async (_req, res) => {
 });
 
 app.use(swaggerRoutes);
+app.use("/v1/auth", authRoutes);
 app.use("/v1", profileRoutes);
 app.use("/v1/workspaces", workspaceRoutes);
 
