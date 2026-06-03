@@ -11,11 +11,13 @@ This repository is the backend API and data layer only.
 - Make small local implementation choices only when they are clearly implied by existing files and do not change direction.
 
 ## Mandatory Zuggie Workflow
+- Session startup is mandatory: follow `SESSION_START_CHECKLIST.md` before non-trivial work.
 - For every non-trivial task, use the Zuggie spec-first workflow by default.
 - Start with `zuggie-spec` to produce a concise spec before implementation.
 - Wait for explicit user approval of the spec before writing code.
 - Use `zuggie-impl` only after the spec is accepted.
 - Use reviewer/project gates before completion.
+- If any mandatory workflow step is skipped, STOP and self-correct before continuing.
 - Trivial tasks may skip the spec only when they are mechanical, local, and do not involve product, architecture, dependency, folder-structure, API-contract, compliance, security, privacy, auth, database, or migration decisions.
 - When unsure whether a task is trivial, treat it as non-trivial and start with a spec.
 
