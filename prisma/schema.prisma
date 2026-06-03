@@ -1,13 +1,93 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
   provider = "prisma-client"
-  output   = "../generated/prisma"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
+}
+
+model Profile {
+  id             String   @id @db.Uuid
+  email          String?
+  displayName    String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  memberships WorkspaceMember[]
+}
+
+model Workspace {
+  id              String          @id @default(uuid()) @db.Uuid
+  name            String
+  status          WorkspaceStatus @default(draft)
+  engineTarget    EngineTarget    @default(unknown)
+  activeMilestone String?
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  members        WorkspaceMember[]
+  gameConcepts   GameConcept[]
+  gameBlueprints GameBlueprint[]
+}
+
+model WorkspaceMember {
+  id          String        @id @default(uuid()) @db.Uuid
+  workspaceId String        @db.Uuid
+  profileId   String        @db.Uuid
+  role        WorkspaceRole @default(owner)
+  createdAt   DateTime      @default(now())
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  profile   Profile   @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@unique([workspaceId, profileId])
+}
+
+model GameConcept {
+  id          String   @id @default(uuid()) @db.Uuid
+  workspaceId String   @db.Uuid
+  title       String
+  pitch       String?
+  genre       String?
+  coreLoop    String?
+  tone        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+}
+
+model GameBlueprint {
+  id          String          @id @default(uuid()) @db.Uuid
+  workspaceId String          @db.Uuid
+  version     Int             @default(1)
+  status      BlueprintStatus @default(draft)
+  contentJson Json
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+}
+
+enum WorkspaceStatus {
+  draft
+  active
+  archived
+}
+
+enum EngineTarget {
+  unknown
+  godot
+}
+
+enum WorkspaceRole {
+  owner
+  member
+}
+
+enum BlueprintStatus {
+  draft
+  approved
+  archived
 }
