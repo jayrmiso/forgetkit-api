@@ -1,17 +1,17 @@
 import { prisma } from "../../database/prismaClient";
 
-type UpsertProfileInput = {
+type UpsertUserProfileInput = {
   id: string;
   email: string | null;
   username?: string | null;
   displayName?: string | null;
 };
 
-export class ProfileRepository {
+export class UserProfileRepository {
   constructor(private readonly db: any = prisma) {}
 
-  async upsertByAuthUser(input: UpsertProfileInput) {
-    return this.db.profile.upsert({
+  async upsertByAuthUser(input: UpsertUserProfileInput) {
+    return this.db.userProfile.upsert({
       where: { id: input.id },
       create: {
         id: input.id,
@@ -28,7 +28,7 @@ export class ProfileRepository {
   }
 
   async findByUsername(username: string) {
-    return this.db.profile.findFirst({
+    return this.db.userProfile.findFirst({
       where: { username: username.toLowerCase() },
     });
   }

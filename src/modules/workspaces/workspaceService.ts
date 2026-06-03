@@ -13,9 +13,9 @@ export type WorkspaceWithMember = {
 };
 
 export type WorkspaceRepositoryLike = {
-  createForOwner(profileId: string, input: CreateWorkspaceInput): Promise<WorkspaceWithMember>;
-  findManyForProfile(profileId: string): Promise<WorkspaceWithMember[]>;
-  findByIdForProfile(workspaceId: string, profileId: string): Promise<WorkspaceWithMember | null>;
+  createForOwner(userProfileId: string, input: CreateWorkspaceInput): Promise<WorkspaceWithMember>;
+  findManyForUserProfile(userProfileId: string): Promise<WorkspaceWithMember[]>;
+  findByIdForUserProfile(workspaceId: string, userProfileId: string): Promise<WorkspaceWithMember | null>;
 };
 
 function toDto(workspace: WorkspaceWithMember): WorkspaceDto {
@@ -36,18 +36,18 @@ function toDto(workspace: WorkspaceWithMember): WorkspaceDto {
 export class WorkspaceService {
   constructor(private readonly repository: WorkspaceRepositoryLike) {}
 
-  async createWorkspace(profileId: string, input: CreateWorkspaceInput): Promise<WorkspaceDto> {
-    const workspace = await this.repository.createForOwner(profileId, input);
+  async createWorkspace(userProfileId: string, input: CreateWorkspaceInput): Promise<WorkspaceDto> {
+    const workspace = await this.repository.createForOwner(userProfileId, input);
     return toDto(workspace);
   }
 
-  async listWorkspaces(profileId: string): Promise<WorkspaceDto[]> {
-    const workspaces = await this.repository.findManyForProfile(profileId);
+  async listWorkspaces(userProfileId: string): Promise<WorkspaceDto[]> {
+    const workspaces = await this.repository.findManyForUserProfile(userProfileId);
     return workspaces.map(toDto);
   }
 
-  async getWorkspace(profileId: string, workspaceId: string): Promise<WorkspaceDto> {
-    const workspace = await this.repository.findByIdForProfile(workspaceId, profileId);
+  async getWorkspace(userProfileId: string, workspaceId: string): Promise<WorkspaceDto> {
+    const workspace = await this.repository.findByIdForUserProfile(workspaceId, userProfileId);
 
     if (!workspace) {
       throw new AppError("WORKSPACE_NOT_FOUND", "Workspace not found", 404);

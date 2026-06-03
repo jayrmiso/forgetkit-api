@@ -51,7 +51,7 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  Profile: 'Profile',
+  UserProfile: 'UserProfile',
   Workspace: 'Workspace',
   WorkspaceMember: 'WorkspaceMember',
   GameConcept: 'GameConcept',
@@ -74,7 +74,7 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-export const ProfileScalarFieldEnum = {
+export const UserProfileScalarFieldEnum = {
   id: 'id',
   email: 'email',
   username: 'username',
@@ -83,7 +83,7 @@ export const ProfileScalarFieldEnum = {
   updatedAt: 'updatedAt'
 } as const
 
-export type ProfileScalarFieldEnum = (typeof ProfileScalarFieldEnum)[keyof typeof ProfileScalarFieldEnum]
+export type UserProfileScalarFieldEnum = (typeof UserProfileScalarFieldEnum)[keyof typeof UserProfileScalarFieldEnum]
 
 
 export const WorkspaceScalarFieldEnum = {
@@ -102,7 +102,7 @@ export type WorkspaceScalarFieldEnum = (typeof WorkspaceScalarFieldEnum)[keyof t
 export const WorkspaceMemberScalarFieldEnum = {
   id: 'id',
   workspaceId: 'workspaceId',
-  profileId: 'profileId',
+  userProfileId: 'userProfileId',
   role: 'role',
   createdAt: 'createdAt'
 } as const

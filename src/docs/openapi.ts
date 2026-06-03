@@ -63,7 +63,7 @@ export const openApiDocument = {
           },
         },
       },
-      Profile: {
+      UserProfile: {
         type: "object",
         required: ["id", "email", "username", "displayName", "createdAt", "updatedAt"],
         properties: {
@@ -75,10 +75,10 @@ export const openApiDocument = {
           updatedAt: { type: "string", format: "date-time" },
         },
       },
-      ProfileResponse: {
+      UserProfileResponse: {
         type: "object",
         required: ["data"],
-        properties: { data: { type: "object", required: ["profile"], properties: { profile: ref("Profile") } } },
+        properties: { data: { type: "object", required: ["profile"], properties: { profile: ref("UserProfile") } } },
       },
       Workspace: {
         type: "object",
@@ -203,7 +203,7 @@ export const openApiDocument = {
         summary: "Current profile",
         security: [{ bearerAuth: [] }],
         responses: {
-          "200": { description: "Current profile", ...json(ref("ProfileResponse")) },
+          "200": { description: "Current profile", ...json(ref("UserProfileResponse")) },
           "401": { description: "Unauthorized", ...json(ref("ErrorResponse")) },
         },
       },

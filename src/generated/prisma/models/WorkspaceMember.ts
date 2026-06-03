@@ -27,7 +27,7 @@ export type AggregateWorkspaceMember = {
 export type WorkspaceMemberMinAggregateOutputType = {
   id: string | null
   workspaceId: string | null
-  profileId: string | null
+  userProfileId: string | null
   role: $Enums.WorkspaceRole | null
   createdAt: Date | null
 }
@@ -35,7 +35,7 @@ export type WorkspaceMemberMinAggregateOutputType = {
 export type WorkspaceMemberMaxAggregateOutputType = {
   id: string | null
   workspaceId: string | null
-  profileId: string | null
+  userProfileId: string | null
   role: $Enums.WorkspaceRole | null
   createdAt: Date | null
 }
@@ -43,7 +43,7 @@ export type WorkspaceMemberMaxAggregateOutputType = {
 export type WorkspaceMemberCountAggregateOutputType = {
   id: number
   workspaceId: number
-  profileId: number
+  userProfileId: number
   role: number
   createdAt: number
   _all: number
@@ -53,7 +53,7 @@ export type WorkspaceMemberCountAggregateOutputType = {
 export type WorkspaceMemberMinAggregateInputType = {
   id?: true
   workspaceId?: true
-  profileId?: true
+  userProfileId?: true
   role?: true
   createdAt?: true
 }
@@ -61,7 +61,7 @@ export type WorkspaceMemberMinAggregateInputType = {
 export type WorkspaceMemberMaxAggregateInputType = {
   id?: true
   workspaceId?: true
-  profileId?: true
+  userProfileId?: true
   role?: true
   createdAt?: true
 }
@@ -69,7 +69,7 @@ export type WorkspaceMemberMaxAggregateInputType = {
 export type WorkspaceMemberCountAggregateInputType = {
   id?: true
   workspaceId?: true
-  profileId?: true
+  userProfileId?: true
   role?: true
   createdAt?: true
   _all?: true
@@ -150,7 +150,7 @@ export type WorkspaceMemberGroupByArgs<ExtArgs extends runtime.Types.Extensions.
 export type WorkspaceMemberGroupByOutputType = {
   id: string
   workspaceId: string
-  profileId: string
+  userProfileId: string
   role: $Enums.WorkspaceRole
   createdAt: Date
   _count: WorkspaceMemberCountAggregateOutputType | null
@@ -179,41 +179,41 @@ export type WorkspaceMemberWhereInput = {
   NOT?: Prisma.WorkspaceMemberWhereInput | Prisma.WorkspaceMemberWhereInput[]
   id?: Prisma.UuidFilter<"WorkspaceMember"> | string
   workspaceId?: Prisma.UuidFilter<"WorkspaceMember"> | string
-  profileId?: Prisma.UuidFilter<"WorkspaceMember"> | string
+  userProfileId?: Prisma.UuidFilter<"WorkspaceMember"> | string
   role?: Prisma.EnumWorkspaceRoleFilter<"WorkspaceMember"> | $Enums.WorkspaceRole
   createdAt?: Prisma.DateTimeFilter<"WorkspaceMember"> | Date | string
   workspace?: Prisma.XOR<Prisma.WorkspaceScalarRelationFilter, Prisma.WorkspaceWhereInput>
-  profile?: Prisma.XOR<Prisma.ProfileScalarRelationFilter, Prisma.ProfileWhereInput>
+  userProfile?: Prisma.XOR<Prisma.UserProfileScalarRelationFilter, Prisma.UserProfileWhereInput>
 }
 
 export type WorkspaceMemberOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   workspaceId?: Prisma.SortOrder
-  profileId?: Prisma.SortOrder
+  userProfileId?: Prisma.SortOrder
   role?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   workspace?: Prisma.WorkspaceOrderByWithRelationInput
-  profile?: Prisma.ProfileOrderByWithRelationInput
+  userProfile?: Prisma.UserProfileOrderByWithRelationInput
 }
 
 export type WorkspaceMemberWhereUniqueInput = Prisma.AtLeast<{
   id?: string
-  workspaceId_profileId?: Prisma.WorkspaceMemberWorkspaceIdProfileIdCompoundUniqueInput
+  workspaceId_userProfileId?: Prisma.WorkspaceMemberWorkspaceIdUserProfileIdCompoundUniqueInput
   AND?: Prisma.WorkspaceMemberWhereInput | Prisma.WorkspaceMemberWhereInput[]
   OR?: Prisma.WorkspaceMemberWhereInput[]
   NOT?: Prisma.WorkspaceMemberWhereInput | Prisma.WorkspaceMemberWhereInput[]
   workspaceId?: Prisma.UuidFilter<"WorkspaceMember"> | string
-  profileId?: Prisma.UuidFilter<"WorkspaceMember"> | string
+  userProfileId?: Prisma.UuidFilter<"WorkspaceMember"> | string
   role?: Prisma.EnumWorkspaceRoleFilter<"WorkspaceMember"> | $Enums.WorkspaceRole
   createdAt?: Prisma.DateTimeFilter<"WorkspaceMember"> | Date | string
   workspace?: Prisma.XOR<Prisma.WorkspaceScalarRelationFilter, Prisma.WorkspaceWhereInput>
-  profile?: Prisma.XOR<Prisma.ProfileScalarRelationFilter, Prisma.ProfileWhereInput>
-}, "id" | "workspaceId_profileId">
+  userProfile?: Prisma.XOR<Prisma.UserProfileScalarRelationFilter, Prisma.UserProfileWhereInput>
+}, "id" | "workspaceId_userProfileId">
 
 export type WorkspaceMemberOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   workspaceId?: Prisma.SortOrder
-  profileId?: Prisma.SortOrder
+  userProfileId?: Prisma.SortOrder
   role?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   _count?: Prisma.WorkspaceMemberCountOrderByAggregateInput
@@ -227,7 +227,7 @@ export type WorkspaceMemberScalarWhereWithAggregatesInput = {
   NOT?: Prisma.WorkspaceMemberScalarWhereWithAggregatesInput | Prisma.WorkspaceMemberScalarWhereWithAggregatesInput[]
   id?: Prisma.UuidWithAggregatesFilter<"WorkspaceMember"> | string
   workspaceId?: Prisma.UuidWithAggregatesFilter<"WorkspaceMember"> | string
-  profileId?: Prisma.UuidWithAggregatesFilter<"WorkspaceMember"> | string
+  userProfileId?: Prisma.UuidWithAggregatesFilter<"WorkspaceMember"> | string
   role?: Prisma.EnumWorkspaceRoleWithAggregatesFilter<"WorkspaceMember"> | $Enums.WorkspaceRole
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"WorkspaceMember"> | Date | string
 }
@@ -237,13 +237,13 @@ export type WorkspaceMemberCreateInput = {
   role?: $Enums.WorkspaceRole
   createdAt?: Date | string
   workspace: Prisma.WorkspaceCreateNestedOneWithoutMembersInput
-  profile: Prisma.ProfileCreateNestedOneWithoutMembershipsInput
+  userProfile: Prisma.UserProfileCreateNestedOneWithoutMembershipsInput
 }
 
 export type WorkspaceMemberUncheckedCreateInput = {
   id?: string
   workspaceId: string
-  profileId: string
+  userProfileId: string
   role?: $Enums.WorkspaceRole
   createdAt?: Date | string
 }
@@ -253,13 +253,13 @@ export type WorkspaceMemberUpdateInput = {
   role?: Prisma.EnumWorkspaceRoleFieldUpdateOperationsInput | $Enums.WorkspaceRole
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   workspace?: Prisma.WorkspaceUpdateOneRequiredWithoutMembersNestedInput
-  profile?: Prisma.ProfileUpdateOneRequiredWithoutMembershipsNestedInput
+  userProfile?: Prisma.UserProfileUpdateOneRequiredWithoutMembershipsNestedInput
 }
 
 export type WorkspaceMemberUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
-  profileId?: Prisma.StringFieldUpdateOperationsInput | string
+  userProfileId?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumWorkspaceRoleFieldUpdateOperationsInput | $Enums.WorkspaceRole
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -267,7 +267,7 @@ export type WorkspaceMemberUncheckedUpdateInput = {
 export type WorkspaceMemberCreateManyInput = {
   id?: string
   workspaceId: string
-  profileId: string
+  userProfileId: string
   role?: $Enums.WorkspaceRole
   createdAt?: Date | string
 }
@@ -281,7 +281,7 @@ export type WorkspaceMemberUpdateManyMutationInput = {
 export type WorkspaceMemberUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
-  profileId?: Prisma.StringFieldUpdateOperationsInput | string
+  userProfileId?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumWorkspaceRoleFieldUpdateOperationsInput | $Enums.WorkspaceRole
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -296,15 +296,15 @@ export type WorkspaceMemberOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
-export type WorkspaceMemberWorkspaceIdProfileIdCompoundUniqueInput = {
+export type WorkspaceMemberWorkspaceIdUserProfileIdCompoundUniqueInput = {
   workspaceId: string
-  profileId: string
+  userProfileId: string
 }
 
 export type WorkspaceMemberCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   workspaceId?: Prisma.SortOrder
-  profileId?: Prisma.SortOrder
+  userProfileId?: Prisma.SortOrder
   role?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -312,7 +312,7 @@ export type WorkspaceMemberCountOrderByAggregateInput = {
 export type WorkspaceMemberMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   workspaceId?: Prisma.SortOrder
-  profileId?: Prisma.SortOrder
+  userProfileId?: Prisma.SortOrder
   role?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -320,50 +320,50 @@ export type WorkspaceMemberMaxOrderByAggregateInput = {
 export type WorkspaceMemberMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   workspaceId?: Prisma.SortOrder
-  profileId?: Prisma.SortOrder
+  userProfileId?: Prisma.SortOrder
   role?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
-export type WorkspaceMemberCreateNestedManyWithoutProfileInput = {
-  create?: Prisma.XOR<Prisma.WorkspaceMemberCreateWithoutProfileInput, Prisma.WorkspaceMemberUncheckedCreateWithoutProfileInput> | Prisma.WorkspaceMemberCreateWithoutProfileInput[] | Prisma.WorkspaceMemberUncheckedCreateWithoutProfileInput[]
-  connectOrCreate?: Prisma.WorkspaceMemberCreateOrConnectWithoutProfileInput | Prisma.WorkspaceMemberCreateOrConnectWithoutProfileInput[]
-  createMany?: Prisma.WorkspaceMemberCreateManyProfileInputEnvelope
+export type WorkspaceMemberCreateNestedManyWithoutUserProfileInput = {
+  create?: Prisma.XOR<Prisma.WorkspaceMemberCreateWithoutUserProfileInput, Prisma.WorkspaceMemberUncheckedCreateWithoutUserProfileInput> | Prisma.WorkspaceMemberCreateWithoutUserProfileInput[] | Prisma.WorkspaceMemberUncheckedCreateWithoutUserProfileInput[]
+  connectOrCreate?: Prisma.WorkspaceMemberCreateOrConnectWithoutUserProfileInput | Prisma.WorkspaceMemberCreateOrConnectWithoutUserProfileInput[]
+  createMany?: Prisma.WorkspaceMemberCreateManyUserProfileInputEnvelope
   connect?: Prisma.WorkspaceMemberWhereUniqueInput | Prisma.WorkspaceMemberWhereUniqueInput[]
 }
 
-export type WorkspaceMemberUncheckedCreateNestedManyWithoutProfileInput = {
-  create?: Prisma.XOR<Prisma.WorkspaceMemberCreateWithoutProfileInput, Prisma.WorkspaceMemberUncheckedCreateWithoutProfileInput> | Prisma.WorkspaceMemberCreateWithoutProfileInput[] | Prisma.WorkspaceMemberUncheckedCreateWithoutProfileInput[]
-  connectOrCreate?: Prisma.WorkspaceMemberCreateOrConnectWithoutProfileInput | Prisma.WorkspaceMemberCreateOrConnectWithoutProfileInput[]
-  createMany?: Prisma.WorkspaceMemberCreateManyProfileInputEnvelope
+export type WorkspaceMemberUncheckedCreateNestedManyWithoutUserProfileInput = {
+  create?: Prisma.XOR<Prisma.WorkspaceMemberCreateWithoutUserProfileInput, Prisma.WorkspaceMemberUncheckedCreateWithoutUserProfileInput> | Prisma.WorkspaceMemberCreateWithoutUserProfileInput[] | Prisma.WorkspaceMemberUncheckedCreateWithoutUserProfileInput[]
+  connectOrCreate?: Prisma.WorkspaceMemberCreateOrConnectWithoutUserProfileInput | Prisma.WorkspaceMemberCreateOrConnectWithoutUserProfileInput[]
+  createMany?: Prisma.WorkspaceMemberCreateManyUserProfileInputEnvelope
   connect?: Prisma.WorkspaceMemberWhereUniqueInput | Prisma.WorkspaceMemberWhereUniqueInput[]
 }
 
-export type WorkspaceMemberUpdateManyWithoutProfileNestedInput = {
-  create?: Prisma.XOR<Prisma.WorkspaceMemberCreateWithoutProfileInput, Prisma.WorkspaceMemberUncheckedCreateWithoutProfileInput> | Prisma.WorkspaceMemberCreateWithoutProfileInput[] | Prisma.WorkspaceMemberUncheckedCreateWithoutProfileInput[]
-  connectOrCreate?: Prisma.WorkspaceMemberCreateOrConnectWithoutProfileInput | Prisma.WorkspaceMemberCreateOrConnectWithoutProfileInput[]
-  upsert?: Prisma.WorkspaceMemberUpsertWithWhereUniqueWithoutProfileInput | Prisma.WorkspaceMemberUpsertWithWhereUniqueWithoutProfileInput[]
-  createMany?: Prisma.WorkspaceMemberCreateManyProfileInputEnvelope
+export type WorkspaceMemberUpdateManyWithoutUserProfileNestedInput = {
+  create?: Prisma.XOR<Prisma.WorkspaceMemberCreateWithoutUserProfileInput, Prisma.WorkspaceMemberUncheckedCreateWithoutUserProfileInput> | Prisma.WorkspaceMemberCreateWithoutUserProfileInput[] | Prisma.WorkspaceMemberUncheckedCreateWithoutUserProfileInput[]
+  connectOrCreate?: Prisma.WorkspaceMemberCreateOrConnectWithoutUserProfileInput | Prisma.WorkspaceMemberCreateOrConnectWithoutUserProfileInput[]
+  upsert?: Prisma.WorkspaceMemberUpsertWithWhereUniqueWithoutUserProfileInput | Prisma.WorkspaceMemberUpsertWithWhereUniqueWithoutUserProfileInput[]
+  createMany?: Prisma.WorkspaceMemberCreateManyUserProfileInputEnvelope
   set?: Prisma.WorkspaceMemberWhereUniqueInput | Prisma.WorkspaceMemberWhereUniqueInput[]
   disconnect?: Prisma.WorkspaceMemberWhereUniqueInput | Prisma.WorkspaceMemberWhereUniqueInput[]
   delete?: Prisma.WorkspaceMemberWhereUniqueInput | Prisma.WorkspaceMemberWhereUniqueInput[]
   connect?: Prisma.WorkspaceMemberWhereUniqueInput | Prisma.WorkspaceMemberWhereUniqueInput[]
-  update?: Prisma.WorkspaceMemberUpdateWithWhereUniqueWithoutProfileInput | Prisma.WorkspaceMemberUpdateWithWhereUniqueWithoutProfileInput[]
-  updateMany?: Prisma.WorkspaceMemberUpdateManyWithWhereWithoutProfileInput | Prisma.WorkspaceMemberUpdateManyWithWhereWithoutProfileInput[]
+  update?: Prisma.WorkspaceMemberUpdateWithWhereUniqueWithoutUserProfileInput | Prisma.WorkspaceMemberUpdateWithWhereUniqueWithoutUserProfileInput[]
+  updateMany?: Prisma.WorkspaceMemberUpdateManyWithWhereWithoutUserProfileInput | Prisma.WorkspaceMemberUpdateManyWithWhereWithoutUserProfileInput[]
   deleteMany?: Prisma.WorkspaceMemberScalarWhereInput | Prisma.WorkspaceMemberScalarWhereInput[]
 }
 
-export type WorkspaceMemberUncheckedUpdateManyWithoutProfileNestedInput = {
-  create?: Prisma.XOR<Prisma.WorkspaceMemberCreateWithoutProfileInput, Prisma.WorkspaceMemberUncheckedCreateWithoutProfileInput> | Prisma.WorkspaceMemberCreateWithoutProfileInput[] | Prisma.WorkspaceMemberUncheckedCreateWithoutProfileInput[]
-  connectOrCreate?: Prisma.WorkspaceMemberCreateOrConnectWithoutProfileInput | Prisma.WorkspaceMemberCreateOrConnectWithoutProfileInput[]
-  upsert?: Prisma.WorkspaceMemberUpsertWithWhereUniqueWithoutProfileInput | Prisma.WorkspaceMemberUpsertWithWhereUniqueWithoutProfileInput[]
-  createMany?: Prisma.WorkspaceMemberCreateManyProfileInputEnvelope
+export type WorkspaceMemberUncheckedUpdateManyWithoutUserProfileNestedInput = {
+  create?: Prisma.XOR<Prisma.WorkspaceMemberCreateWithoutUserProfileInput, Prisma.WorkspaceMemberUncheckedCreateWithoutUserProfileInput> | Prisma.WorkspaceMemberCreateWithoutUserProfileInput[] | Prisma.WorkspaceMemberUncheckedCreateWithoutUserProfileInput[]
+  connectOrCreate?: Prisma.WorkspaceMemberCreateOrConnectWithoutUserProfileInput | Prisma.WorkspaceMemberCreateOrConnectWithoutUserProfileInput[]
+  upsert?: Prisma.WorkspaceMemberUpsertWithWhereUniqueWithoutUserProfileInput | Prisma.WorkspaceMemberUpsertWithWhereUniqueWithoutUserProfileInput[]
+  createMany?: Prisma.WorkspaceMemberCreateManyUserProfileInputEnvelope
   set?: Prisma.WorkspaceMemberWhereUniqueInput | Prisma.WorkspaceMemberWhereUniqueInput[]
   disconnect?: Prisma.WorkspaceMemberWhereUniqueInput | Prisma.WorkspaceMemberWhereUniqueInput[]
   delete?: Prisma.WorkspaceMemberWhereUniqueInput | Prisma.WorkspaceMemberWhereUniqueInput[]
   connect?: Prisma.WorkspaceMemberWhereUniqueInput | Prisma.WorkspaceMemberWhereUniqueInput[]
-  update?: Prisma.WorkspaceMemberUpdateWithWhereUniqueWithoutProfileInput | Prisma.WorkspaceMemberUpdateWithWhereUniqueWithoutProfileInput[]
-  updateMany?: Prisma.WorkspaceMemberUpdateManyWithWhereWithoutProfileInput | Prisma.WorkspaceMemberUpdateManyWithWhereWithoutProfileInput[]
+  update?: Prisma.WorkspaceMemberUpdateWithWhereUniqueWithoutUserProfileInput | Prisma.WorkspaceMemberUpdateWithWhereUniqueWithoutUserProfileInput[]
+  updateMany?: Prisma.WorkspaceMemberUpdateManyWithWhereWithoutUserProfileInput | Prisma.WorkspaceMemberUpdateManyWithWhereWithoutUserProfileInput[]
   deleteMany?: Prisma.WorkspaceMemberScalarWhereInput | Prisma.WorkspaceMemberScalarWhereInput[]
 }
 
@@ -413,44 +413,44 @@ export type EnumWorkspaceRoleFieldUpdateOperationsInput = {
   set?: $Enums.WorkspaceRole
 }
 
-export type WorkspaceMemberCreateWithoutProfileInput = {
+export type WorkspaceMemberCreateWithoutUserProfileInput = {
   id?: string
   role?: $Enums.WorkspaceRole
   createdAt?: Date | string
   workspace: Prisma.WorkspaceCreateNestedOneWithoutMembersInput
 }
 
-export type WorkspaceMemberUncheckedCreateWithoutProfileInput = {
+export type WorkspaceMemberUncheckedCreateWithoutUserProfileInput = {
   id?: string
   workspaceId: string
   role?: $Enums.WorkspaceRole
   createdAt?: Date | string
 }
 
-export type WorkspaceMemberCreateOrConnectWithoutProfileInput = {
+export type WorkspaceMemberCreateOrConnectWithoutUserProfileInput = {
   where: Prisma.WorkspaceMemberWhereUniqueInput
-  create: Prisma.XOR<Prisma.WorkspaceMemberCreateWithoutProfileInput, Prisma.WorkspaceMemberUncheckedCreateWithoutProfileInput>
+  create: Prisma.XOR<Prisma.WorkspaceMemberCreateWithoutUserProfileInput, Prisma.WorkspaceMemberUncheckedCreateWithoutUserProfileInput>
 }
 
-export type WorkspaceMemberCreateManyProfileInputEnvelope = {
-  data: Prisma.WorkspaceMemberCreateManyProfileInput | Prisma.WorkspaceMemberCreateManyProfileInput[]
+export type WorkspaceMemberCreateManyUserProfileInputEnvelope = {
+  data: Prisma.WorkspaceMemberCreateManyUserProfileInput | Prisma.WorkspaceMemberCreateManyUserProfileInput[]
   skipDuplicates?: boolean
 }
 
-export type WorkspaceMemberUpsertWithWhereUniqueWithoutProfileInput = {
+export type WorkspaceMemberUpsertWithWhereUniqueWithoutUserProfileInput = {
   where: Prisma.WorkspaceMemberWhereUniqueInput
-  update: Prisma.XOR<Prisma.WorkspaceMemberUpdateWithoutProfileInput, Prisma.WorkspaceMemberUncheckedUpdateWithoutProfileInput>
-  create: Prisma.XOR<Prisma.WorkspaceMemberCreateWithoutProfileInput, Prisma.WorkspaceMemberUncheckedCreateWithoutProfileInput>
+  update: Prisma.XOR<Prisma.WorkspaceMemberUpdateWithoutUserProfileInput, Prisma.WorkspaceMemberUncheckedUpdateWithoutUserProfileInput>
+  create: Prisma.XOR<Prisma.WorkspaceMemberCreateWithoutUserProfileInput, Prisma.WorkspaceMemberUncheckedCreateWithoutUserProfileInput>
 }
 
-export type WorkspaceMemberUpdateWithWhereUniqueWithoutProfileInput = {
+export type WorkspaceMemberUpdateWithWhereUniqueWithoutUserProfileInput = {
   where: Prisma.WorkspaceMemberWhereUniqueInput
-  data: Prisma.XOR<Prisma.WorkspaceMemberUpdateWithoutProfileInput, Prisma.WorkspaceMemberUncheckedUpdateWithoutProfileInput>
+  data: Prisma.XOR<Prisma.WorkspaceMemberUpdateWithoutUserProfileInput, Prisma.WorkspaceMemberUncheckedUpdateWithoutUserProfileInput>
 }
 
-export type WorkspaceMemberUpdateManyWithWhereWithoutProfileInput = {
+export type WorkspaceMemberUpdateManyWithWhereWithoutUserProfileInput = {
   where: Prisma.WorkspaceMemberScalarWhereInput
-  data: Prisma.XOR<Prisma.WorkspaceMemberUpdateManyMutationInput, Prisma.WorkspaceMemberUncheckedUpdateManyWithoutProfileInput>
+  data: Prisma.XOR<Prisma.WorkspaceMemberUpdateManyMutationInput, Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserProfileInput>
 }
 
 export type WorkspaceMemberScalarWhereInput = {
@@ -459,7 +459,7 @@ export type WorkspaceMemberScalarWhereInput = {
   NOT?: Prisma.WorkspaceMemberScalarWhereInput | Prisma.WorkspaceMemberScalarWhereInput[]
   id?: Prisma.UuidFilter<"WorkspaceMember"> | string
   workspaceId?: Prisma.UuidFilter<"WorkspaceMember"> | string
-  profileId?: Prisma.UuidFilter<"WorkspaceMember"> | string
+  userProfileId?: Prisma.UuidFilter<"WorkspaceMember"> | string
   role?: Prisma.EnumWorkspaceRoleFilter<"WorkspaceMember"> | $Enums.WorkspaceRole
   createdAt?: Prisma.DateTimeFilter<"WorkspaceMember"> | Date | string
 }
@@ -468,12 +468,12 @@ export type WorkspaceMemberCreateWithoutWorkspaceInput = {
   id?: string
   role?: $Enums.WorkspaceRole
   createdAt?: Date | string
-  profile: Prisma.ProfileCreateNestedOneWithoutMembershipsInput
+  userProfile: Prisma.UserProfileCreateNestedOneWithoutMembershipsInput
 }
 
 export type WorkspaceMemberUncheckedCreateWithoutWorkspaceInput = {
   id?: string
-  profileId: string
+  userProfileId: string
   role?: $Enums.WorkspaceRole
   createdAt?: Date | string
 }
@@ -504,28 +504,28 @@ export type WorkspaceMemberUpdateManyWithWhereWithoutWorkspaceInput = {
   data: Prisma.XOR<Prisma.WorkspaceMemberUpdateManyMutationInput, Prisma.WorkspaceMemberUncheckedUpdateManyWithoutWorkspaceInput>
 }
 
-export type WorkspaceMemberCreateManyProfileInput = {
+export type WorkspaceMemberCreateManyUserProfileInput = {
   id?: string
   workspaceId: string
   role?: $Enums.WorkspaceRole
   createdAt?: Date | string
 }
 
-export type WorkspaceMemberUpdateWithoutProfileInput = {
+export type WorkspaceMemberUpdateWithoutUserProfileInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumWorkspaceRoleFieldUpdateOperationsInput | $Enums.WorkspaceRole
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   workspace?: Prisma.WorkspaceUpdateOneRequiredWithoutMembersNestedInput
 }
 
-export type WorkspaceMemberUncheckedUpdateWithoutProfileInput = {
+export type WorkspaceMemberUncheckedUpdateWithoutUserProfileInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumWorkspaceRoleFieldUpdateOperationsInput | $Enums.WorkspaceRole
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type WorkspaceMemberUncheckedUpdateManyWithoutProfileInput = {
+export type WorkspaceMemberUncheckedUpdateManyWithoutUserProfileInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumWorkspaceRoleFieldUpdateOperationsInput | $Enums.WorkspaceRole
@@ -534,7 +534,7 @@ export type WorkspaceMemberUncheckedUpdateManyWithoutProfileInput = {
 
 export type WorkspaceMemberCreateManyWorkspaceInput = {
   id?: string
-  profileId: string
+  userProfileId: string
   role?: $Enums.WorkspaceRole
   createdAt?: Date | string
 }
@@ -543,19 +543,19 @@ export type WorkspaceMemberUpdateWithoutWorkspaceInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumWorkspaceRoleFieldUpdateOperationsInput | $Enums.WorkspaceRole
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  profile?: Prisma.ProfileUpdateOneRequiredWithoutMembershipsNestedInput
+  userProfile?: Prisma.UserProfileUpdateOneRequiredWithoutMembershipsNestedInput
 }
 
 export type WorkspaceMemberUncheckedUpdateWithoutWorkspaceInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  profileId?: Prisma.StringFieldUpdateOperationsInput | string
+  userProfileId?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumWorkspaceRoleFieldUpdateOperationsInput | $Enums.WorkspaceRole
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type WorkspaceMemberUncheckedUpdateManyWithoutWorkspaceInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  profileId?: Prisma.StringFieldUpdateOperationsInput | string
+  userProfileId?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumWorkspaceRoleFieldUpdateOperationsInput | $Enums.WorkspaceRole
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -565,65 +565,65 @@ export type WorkspaceMemberUncheckedUpdateManyWithoutWorkspaceInput = {
 export type WorkspaceMemberSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   workspaceId?: boolean
-  profileId?: boolean
+  userProfileId?: boolean
   role?: boolean
   createdAt?: boolean
   workspace?: boolean | Prisma.WorkspaceDefaultArgs<ExtArgs>
-  profile?: boolean | Prisma.ProfileDefaultArgs<ExtArgs>
+  userProfile?: boolean | Prisma.UserProfileDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["workspaceMember"]>
 
 export type WorkspaceMemberSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   workspaceId?: boolean
-  profileId?: boolean
+  userProfileId?: boolean
   role?: boolean
   createdAt?: boolean
   workspace?: boolean | Prisma.WorkspaceDefaultArgs<ExtArgs>
-  profile?: boolean | Prisma.ProfileDefaultArgs<ExtArgs>
+  userProfile?: boolean | Prisma.UserProfileDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["workspaceMember"]>
 
 export type WorkspaceMemberSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   workspaceId?: boolean
-  profileId?: boolean
+  userProfileId?: boolean
   role?: boolean
   createdAt?: boolean
   workspace?: boolean | Prisma.WorkspaceDefaultArgs<ExtArgs>
-  profile?: boolean | Prisma.ProfileDefaultArgs<ExtArgs>
+  userProfile?: boolean | Prisma.UserProfileDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["workspaceMember"]>
 
 export type WorkspaceMemberSelectScalar = {
   id?: boolean
   workspaceId?: boolean
-  profileId?: boolean
+  userProfileId?: boolean
   role?: boolean
   createdAt?: boolean
 }
 
-export type WorkspaceMemberOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "workspaceId" | "profileId" | "role" | "createdAt", ExtArgs["result"]["workspaceMember"]>
+export type WorkspaceMemberOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "workspaceId" | "userProfileId" | "role" | "createdAt", ExtArgs["result"]["workspaceMember"]>
 export type WorkspaceMemberInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   workspace?: boolean | Prisma.WorkspaceDefaultArgs<ExtArgs>
-  profile?: boolean | Prisma.ProfileDefaultArgs<ExtArgs>
+  userProfile?: boolean | Prisma.UserProfileDefaultArgs<ExtArgs>
 }
 export type WorkspaceMemberIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   workspace?: boolean | Prisma.WorkspaceDefaultArgs<ExtArgs>
-  profile?: boolean | Prisma.ProfileDefaultArgs<ExtArgs>
+  userProfile?: boolean | Prisma.UserProfileDefaultArgs<ExtArgs>
 }
 export type WorkspaceMemberIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   workspace?: boolean | Prisma.WorkspaceDefaultArgs<ExtArgs>
-  profile?: boolean | Prisma.ProfileDefaultArgs<ExtArgs>
+  userProfile?: boolean | Prisma.UserProfileDefaultArgs<ExtArgs>
 }
 
 export type $WorkspaceMemberPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "WorkspaceMember"
   objects: {
     workspace: Prisma.$WorkspacePayload<ExtArgs>
-    profile: Prisma.$ProfilePayload<ExtArgs>
+    userProfile: Prisma.$UserProfilePayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     workspaceId: string
-    profileId: string
+    userProfileId: string
     role: $Enums.WorkspaceRole
     createdAt: Date
   }, ExtArgs["result"]["workspaceMember"]>
@@ -1021,7 +1021,7 @@ readonly fields: WorkspaceMemberFieldRefs;
 export interface Prisma__WorkspaceMemberClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   workspace<T extends Prisma.WorkspaceDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.WorkspaceDefaultArgs<ExtArgs>>): Prisma.Prisma__WorkspaceClient<runtime.Types.Result.GetResult<Prisma.$WorkspacePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  profile<T extends Prisma.ProfileDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ProfileDefaultArgs<ExtArgs>>): Prisma.Prisma__ProfileClient<runtime.Types.Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  userProfile<T extends Prisma.UserProfileDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserProfileDefaultArgs<ExtArgs>>): Prisma.Prisma__UserProfileClient<runtime.Types.Result.GetResult<Prisma.$UserProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1053,7 +1053,7 @@ export interface Prisma__WorkspaceMemberClient<T, Null = never, ExtArgs extends 
 export interface WorkspaceMemberFieldRefs {
   readonly id: Prisma.FieldRef<"WorkspaceMember", 'String'>
   readonly workspaceId: Prisma.FieldRef<"WorkspaceMember", 'String'>
-  readonly profileId: Prisma.FieldRef<"WorkspaceMember", 'String'>
+  readonly userProfileId: Prisma.FieldRef<"WorkspaceMember", 'String'>
   readonly role: Prisma.FieldRef<"WorkspaceMember", 'WorkspaceRole'>
   readonly createdAt: Prisma.FieldRef<"WorkspaceMember", 'DateTime'>
 }

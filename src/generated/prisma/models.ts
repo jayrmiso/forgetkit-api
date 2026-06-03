@@ -8,7 +8,7 @@
  *
  * 🟢 You can import this file directly.
  */
-export type * from './models/Profile.js'
+export type * from './models/UserProfile.js'
 export type * from './models/Workspace.js'
 export type * from './models/WorkspaceMember.js'
 export type * from './models/GameConcept.js'

@@ -7,7 +7,7 @@ datasource db {
   provider = "postgresql"
 }
 
-model Profile {
+model UserProfile {
   id             String   @id @db.Uuid
   email          String?
   username       String?  @unique
@@ -16,6 +16,8 @@ model Profile {
   updatedAt      DateTime @updatedAt
 
   memberships WorkspaceMember[]
+
+  @@map("user_profile")
 }
 
 model Workspace {
@@ -35,14 +37,14 @@ model Workspace {
 model WorkspaceMember {
   id          String        @id @default(uuid()) @db.Uuid
   workspaceId String        @db.Uuid
-  profileId   String        @db.Uuid
+  userProfileId String      @db.Uuid
   role        WorkspaceRole @default(owner)
   createdAt   DateTime      @default(now())
 
   workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
-  profile   Profile   @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  userProfile UserProfile @relation(fields: [userProfileId], references: [id], onDelete: Cascade)
 
-  @@unique([workspaceId, profileId])
+  @@unique([workspaceId, userProfileId])
 }
 
 model GameConcept {

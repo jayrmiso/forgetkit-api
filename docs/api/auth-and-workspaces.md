@@ -23,4 +23,5 @@ Authorization: Bearer <supabase_access_token>
 
 - `forgetkit-web` signs users in with Supabase Auth and sends the access token to this API.
 - `forgetkit-api` verifies the token, validates payloads, performs authorization, and writes to Postgres through Prisma.
+- The app-owned user record lives in `user_profile` and is linked 1:1 to the Supabase auth user id.
 - Service-role Supabase credentials must only be configured in backend environments.

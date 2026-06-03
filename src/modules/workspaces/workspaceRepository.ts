@@ -15,11 +15,11 @@ export type WorkspaceWithMember = {
 export class WorkspaceRepository {
   constructor(private readonly db: any) {}
 
-  async createForOwner(profileId: string, input: CreateWorkspaceInput): Promise<WorkspaceWithMember> {
+  async createForOwner(userProfileId: string, input: CreateWorkspaceInput): Promise<WorkspaceWithMember> {
     return this.db.$transaction(async (tx: any) => {
-      await tx.profile.upsert({
-        where: { id: profileId },
-        create: { id: profileId, email: null, displayName: null },
+      await tx.userProfile.upsert({
+        where: { id: userProfileId },
+        create: { id: userProfileId, email: null, displayName: null },
         update: {},
       });
 
@@ -29,30 +29,30 @@ export class WorkspaceRepository {
           engineTarget: input.engineTarget,
           members: {
             create: {
-              profileId,
+              userProfileId,
               role: "owner",
             },
           },
         },
-        include: { members: { where: { profileId } } },
+        include: { members: { where: { userProfileId } } },
       });
 
       return workspace as WorkspaceWithMember;
     });
   }
 
-  async findManyForProfile(profileId: string): Promise<WorkspaceWithMember[]> {
+  async findManyForUserProfile(userProfileId: string): Promise<WorkspaceWithMember[]> {
     return this.db.workspace.findMany({
-      where: { members: { some: { profileId } } },
-      include: { members: { where: { profileId } } },
+      where: { members: { some: { userProfileId } } },
+      include: { members: { where: { userProfileId } } },
       orderBy: { updatedAt: "desc" },
     }) as Promise<WorkspaceWithMember[]>;
   }
 
-  async findByIdForProfile(workspaceId: string, profileId: string): Promise<WorkspaceWithMember | null> {
+  async findByIdForUserProfile(workspaceId: string, userProfileId: string): Promise<WorkspaceWithMember | null> {
     return this.db.workspace.findFirst({
-      where: { id: workspaceId, members: { some: { profileId } } },
-      include: { members: { where: { profileId } } },
+      where: { id: workspaceId, members: { some: { userProfileId } } },
+      include: { members: { where: { userProfileId } } },
     }) as Promise<WorkspaceWithMember | null>;
   }
 }

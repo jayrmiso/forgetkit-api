@@ -19,7 +19,7 @@ function workspace(overrides: Partial<WorkspaceWithMember> = {}): WorkspaceWithM
       {
         id: "22222222-2222-4222-8222-222222222222",
         workspaceId: "11111111-1111-4111-8111-111111111111",
-        profileId: "33333333-3333-4333-8333-333333333333",
+        userProfileId: "33333333-3333-4333-8333-333333333333",
         role: "owner",
         createdAt: now,
       },
@@ -31,8 +31,8 @@ function workspace(overrides: Partial<WorkspaceWithMember> = {}): WorkspaceWithM
 test("WorkspaceService creates workspace DTO with owner role", async () => {
   const service = new WorkspaceService({
     createForOwner: async () => workspace(),
-    findManyForProfile: async () => [],
-    findByIdForProfile: async () => null,
+    findManyForUserProfile: async () => [],
+    findByIdForUserProfile: async () => null,
   });
 
   const result = await service.createWorkspace("33333333-3333-4333-8333-333333333333", {
@@ -48,8 +48,8 @@ test("WorkspaceService creates workspace DTO with owner role", async () => {
 test("WorkspaceService returns 404 for inaccessible workspace", async () => {
   const service = new WorkspaceService({
     createForOwner: async () => workspace(),
-    findManyForProfile: async () => [],
-    findByIdForProfile: async () => null,
+    findManyForUserProfile: async () => [],
+    findByIdForUserProfile: async () => null,
   });
 
   await assert.rejects(

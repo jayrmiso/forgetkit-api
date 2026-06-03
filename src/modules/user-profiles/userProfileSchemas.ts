@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const profileSchema = z.object({
+export const userProfileSchema = z.object({
   id: z.string().uuid(),
   email: z.string().email().nullable(),
   username: z.string().nullable(),
@@ -9,4 +9,4 @@ export const profileSchema = z.object({
   updatedAt: z.string(),
 });
 
-export type ProfileDto = z.infer<typeof profileSchema>;
+export type UserProfileDto = z.infer<typeof userProfileSchema>;
