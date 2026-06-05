@@ -206,7 +206,7 @@ export type GameConceptWhereInput = {
   OR?: Prisma.GameConceptWhereInput[]
   NOT?: Prisma.GameConceptWhereInput | Prisma.GameConceptWhereInput[]
   id?: Prisma.UuidFilter<"GameConcept"> | string
-  workspaceId?: Prisma.UuidFilter<"GameConcept"> | string
+  workspaceId?: Prisma.StringFilter<"GameConcept"> | string
   title?: Prisma.StringFilter<"GameConcept"> | string
   pitch?: Prisma.StringNullableFilter<"GameConcept"> | string | null
   genre?: Prisma.StringNullableFilter<"GameConcept"> | string | null
@@ -235,7 +235,7 @@ export type GameConceptWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.GameConceptWhereInput | Prisma.GameConceptWhereInput[]
   OR?: Prisma.GameConceptWhereInput[]
   NOT?: Prisma.GameConceptWhereInput | Prisma.GameConceptWhereInput[]
-  workspaceId?: Prisma.UuidFilter<"GameConcept"> | string
+  workspaceId?: Prisma.StringFilter<"GameConcept"> | string
   title?: Prisma.StringFilter<"GameConcept"> | string
   pitch?: Prisma.StringNullableFilter<"GameConcept"> | string | null
   genre?: Prisma.StringNullableFilter<"GameConcept"> | string | null
@@ -266,7 +266,7 @@ export type GameConceptScalarWhereWithAggregatesInput = {
   OR?: Prisma.GameConceptScalarWhereWithAggregatesInput[]
   NOT?: Prisma.GameConceptScalarWhereWithAggregatesInput | Prisma.GameConceptScalarWhereWithAggregatesInput[]
   id?: Prisma.UuidWithAggregatesFilter<"GameConcept"> | string
-  workspaceId?: Prisma.UuidWithAggregatesFilter<"GameConcept"> | string
+  workspaceId?: Prisma.StringWithAggregatesFilter<"GameConcept"> | string
   title?: Prisma.StringWithAggregatesFilter<"GameConcept"> | string
   pitch?: Prisma.StringNullableWithAggregatesFilter<"GameConcept"> | string | null
   genre?: Prisma.StringNullableWithAggregatesFilter<"GameConcept"> | string | null
@@ -500,7 +500,7 @@ export type GameConceptScalarWhereInput = {
   OR?: Prisma.GameConceptScalarWhereInput[]
   NOT?: Prisma.GameConceptScalarWhereInput | Prisma.GameConceptScalarWhereInput[]
   id?: Prisma.UuidFilter<"GameConcept"> | string
-  workspaceId?: Prisma.UuidFilter<"GameConcept"> | string
+  workspaceId?: Prisma.StringFilter<"GameConcept"> | string
   title?: Prisma.StringFilter<"GameConcept"> | string
   pitch?: Prisma.StringNullableFilter<"GameConcept"> | string | null
   genre?: Prisma.StringNullableFilter<"GameConcept"> | string | null

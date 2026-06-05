@@ -191,7 +191,7 @@ export type WorkspaceWhereInput = {
   AND?: Prisma.WorkspaceWhereInput | Prisma.WorkspaceWhereInput[]
   OR?: Prisma.WorkspaceWhereInput[]
   NOT?: Prisma.WorkspaceWhereInput | Prisma.WorkspaceWhereInput[]
-  id?: Prisma.UuidFilter<"Workspace"> | string
+  id?: Prisma.StringFilter<"Workspace"> | string
   name?: Prisma.StringFilter<"Workspace"> | string
   status?: Prisma.EnumWorkspaceStatusFilter<"Workspace"> | $Enums.WorkspaceStatus
   engineTarget?: Prisma.EnumEngineTargetFilter<"Workspace"> | $Enums.EngineTarget
@@ -249,7 +249,7 @@ export type WorkspaceScalarWhereWithAggregatesInput = {
   AND?: Prisma.WorkspaceScalarWhereWithAggregatesInput | Prisma.WorkspaceScalarWhereWithAggregatesInput[]
   OR?: Prisma.WorkspaceScalarWhereWithAggregatesInput[]
   NOT?: Prisma.WorkspaceScalarWhereWithAggregatesInput | Prisma.WorkspaceScalarWhereWithAggregatesInput[]
-  id?: Prisma.UuidWithAggregatesFilter<"Workspace"> | string
+  id?: Prisma.StringWithAggregatesFilter<"Workspace"> | string
   name?: Prisma.StringWithAggregatesFilter<"Workspace"> | string
   status?: Prisma.EnumWorkspaceStatusWithAggregatesFilter<"Workspace"> | $Enums.WorkspaceStatus
   engineTarget?: Prisma.EnumEngineTargetWithAggregatesFilter<"Workspace"> | $Enums.EngineTarget
@@ -259,7 +259,7 @@ export type WorkspaceScalarWhereWithAggregatesInput = {
 }
 
 export type WorkspaceCreateInput = {
-  id?: string
+  id: string
   name: string
   status?: $Enums.WorkspaceStatus
   engineTarget?: $Enums.EngineTarget
@@ -272,7 +272,7 @@ export type WorkspaceCreateInput = {
 }
 
 export type WorkspaceUncheckedCreateInput = {
-  id?: string
+  id: string
   name: string
   status?: $Enums.WorkspaceStatus
   engineTarget?: $Enums.EngineTarget
@@ -311,7 +311,7 @@ export type WorkspaceUncheckedUpdateInput = {
 }
 
 export type WorkspaceCreateManyInput = {
-  id?: string
+  id: string
   name: string
   status?: $Enums.WorkspaceStatus
   engineTarget?: $Enums.EngineTarget
@@ -426,7 +426,7 @@ export type WorkspaceUpdateOneRequiredWithoutGameBlueprintsNestedInput = {
 }
 
 export type WorkspaceCreateWithoutMembersInput = {
-  id?: string
+  id: string
   name: string
   status?: $Enums.WorkspaceStatus
   engineTarget?: $Enums.EngineTarget
@@ -438,7 +438,7 @@ export type WorkspaceCreateWithoutMembersInput = {
 }
 
 export type WorkspaceUncheckedCreateWithoutMembersInput = {
-  id?: string
+  id: string
   name: string
   status?: $Enums.WorkspaceStatus
   engineTarget?: $Enums.EngineTarget
@@ -490,7 +490,7 @@ export type WorkspaceUncheckedUpdateWithoutMembersInput = {
 }
 
 export type WorkspaceCreateWithoutGameConceptsInput = {
-  id?: string
+  id: string
   name: string
   status?: $Enums.WorkspaceStatus
   engineTarget?: $Enums.EngineTarget
@@ -502,7 +502,7 @@ export type WorkspaceCreateWithoutGameConceptsInput = {
 }
 
 export type WorkspaceUncheckedCreateWithoutGameConceptsInput = {
-  id?: string
+  id: string
   name: string
   status?: $Enums.WorkspaceStatus
   engineTarget?: $Enums.EngineTarget
@@ -554,7 +554,7 @@ export type WorkspaceUncheckedUpdateWithoutGameConceptsInput = {
 }
 
 export type WorkspaceCreateWithoutGameBlueprintsInput = {
-  id?: string
+  id: string
   name: string
   status?: $Enums.WorkspaceStatus
   engineTarget?: $Enums.EngineTarget
@@ -566,7 +566,7 @@ export type WorkspaceCreateWithoutGameBlueprintsInput = {
 }
 
 export type WorkspaceUncheckedCreateWithoutGameBlueprintsInput = {
-  id?: string
+  id: string
   name: string
   status?: $Enums.WorkspaceStatus
   engineTarget?: $Enums.EngineTarget

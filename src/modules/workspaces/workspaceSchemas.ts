@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { workspaceIdPattern } from "./workspaceId";
 
 export const workspaceStatusSchema = z.enum(["draft", "active", "archived"]);
 export const engineTargetSchema = z.enum(["unknown", "godot"]);
@@ -10,11 +11,11 @@ export const createWorkspaceBodySchema = z.object({
 });
 
 export const workspaceParamsSchema = z.object({
-  workspaceId: z.string().uuid(),
+  workspaceId: z.string().regex(workspaceIdPattern),
 });
 
 export const workspaceSchema = z.object({
-  id: z.string().uuid(),
+  id: z.string().regex(workspaceIdPattern),
   name: z.string(),
   status: workspaceStatusSchema,
   engineTarget: engineTargetSchema,

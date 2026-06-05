@@ -222,7 +222,7 @@ export type GameBlueprintWhereInput = {
   OR?: Prisma.GameBlueprintWhereInput[]
   NOT?: Prisma.GameBlueprintWhereInput | Prisma.GameBlueprintWhereInput[]
   id?: Prisma.UuidFilter<"GameBlueprint"> | string
-  workspaceId?: Prisma.UuidFilter<"GameBlueprint"> | string
+  workspaceId?: Prisma.StringFilter<"GameBlueprint"> | string
   version?: Prisma.IntFilter<"GameBlueprint"> | number
   status?: Prisma.EnumBlueprintStatusFilter<"GameBlueprint"> | $Enums.BlueprintStatus
   contentJson?: Prisma.JsonFilter<"GameBlueprint">
@@ -247,7 +247,7 @@ export type GameBlueprintWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.GameBlueprintWhereInput | Prisma.GameBlueprintWhereInput[]
   OR?: Prisma.GameBlueprintWhereInput[]
   NOT?: Prisma.GameBlueprintWhereInput | Prisma.GameBlueprintWhereInput[]
-  workspaceId?: Prisma.UuidFilter<"GameBlueprint"> | string
+  workspaceId?: Prisma.StringFilter<"GameBlueprint"> | string
   version?: Prisma.IntFilter<"GameBlueprint"> | number
   status?: Prisma.EnumBlueprintStatusFilter<"GameBlueprint"> | $Enums.BlueprintStatus
   contentJson?: Prisma.JsonFilter<"GameBlueprint">
@@ -276,7 +276,7 @@ export type GameBlueprintScalarWhereWithAggregatesInput = {
   OR?: Prisma.GameBlueprintScalarWhereWithAggregatesInput[]
   NOT?: Prisma.GameBlueprintScalarWhereWithAggregatesInput | Prisma.GameBlueprintScalarWhereWithAggregatesInput[]
   id?: Prisma.UuidWithAggregatesFilter<"GameBlueprint"> | string
-  workspaceId?: Prisma.UuidWithAggregatesFilter<"GameBlueprint"> | string
+  workspaceId?: Prisma.StringWithAggregatesFilter<"GameBlueprint"> | string
   version?: Prisma.IntWithAggregatesFilter<"GameBlueprint"> | number
   status?: Prisma.EnumBlueprintStatusWithAggregatesFilter<"GameBlueprint"> | $Enums.BlueprintStatus
   contentJson?: Prisma.JsonWithAggregatesFilter<"GameBlueprint">
@@ -502,7 +502,7 @@ export type GameBlueprintScalarWhereInput = {
   OR?: Prisma.GameBlueprintScalarWhereInput[]
   NOT?: Prisma.GameBlueprintScalarWhereInput | Prisma.GameBlueprintScalarWhereInput[]
   id?: Prisma.UuidFilter<"GameBlueprint"> | string
-  workspaceId?: Prisma.UuidFilter<"GameBlueprint"> | string
+  workspaceId?: Prisma.StringFilter<"GameBlueprint"> | string
   version?: Prisma.IntFilter<"GameBlueprint"> | number
   status?: Prisma.EnumBlueprintStatusFilter<"GameBlueprint"> | $Enums.BlueprintStatus
   contentJson?: Prisma.JsonFilter<"GameBlueprint">

@@ -1,5 +1,6 @@
 import type { WorkspaceMember } from "../../generated/prisma/client";
 import type { CreateWorkspaceInput } from "./workspaceSchemas";
+import { generateWorkspaceId } from "./workspaceId";
 
 export type WorkspaceWithMember = {
   id: string;
@@ -25,6 +26,7 @@ export class WorkspaceRepository {
 
       const workspace = await tx.workspace.create({
         data: {
+          id: generateWorkspaceId(),
           name: input.name,
           engineTarget: input.engineTarget,
           members: {

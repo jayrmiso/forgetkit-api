@@ -8,7 +8,7 @@ const now = new Date("2026-06-02T00:00:00.000Z");
 
 function workspace(overrides: Partial<WorkspaceWithMember> = {}): WorkspaceWithMember {
   return {
-    id: "11111111-1111-4111-8111-111111111111",
+    id: "11111111111141118111111111111111",
     name: "Project Eclipse",
     status: "draft",
     engineTarget: "godot",
@@ -18,7 +18,7 @@ function workspace(overrides: Partial<WorkspaceWithMember> = {}): WorkspaceWithM
     members: [
       {
         id: "22222222-2222-4222-8222-222222222222",
-        workspaceId: "11111111-1111-4111-8111-111111111111",
+        workspaceId: "11111111111141118111111111111111",
         userProfileId: "33333333-3333-4333-8333-333333333333",
         role: "owner",
         createdAt: now,
@@ -53,7 +53,7 @@ test("WorkspaceService returns 404 for inaccessible workspace", async () => {
   });
 
   await assert.rejects(
-    () => service.getWorkspace("33333333-3333-4333-8333-333333333333", "11111111-1111-4111-8111-111111111111"),
+    () => service.getWorkspace("33333333-3333-4333-8333-333333333333", "11111111111141118111111111111111"),
     (error) => error instanceof AppError && error.code === "WORKSPACE_NOT_FOUND" && error.statusCode === 404,
   );
 });
