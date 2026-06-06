@@ -1,5 +1,6 @@
 const json = (schema: unknown) => ({ content: { "application/json": { schema } } });
 const ref = (name: string) => ({ $ref: `#/components/schemas/${name}` });
+const workspaceIdSchema = { type: "string", pattern: "^[0-9a-f]{32}$", minLength: 32, maxLength: 32 } as const;
 
 export const openApiDocument = {
   openapi: "3.1.0",
@@ -84,7 +85,7 @@ export const openApiDocument = {
         type: "object",
         required: ["id", "name", "status", "engineTarget", "activeMilestone", "role", "createdAt", "updatedAt"],
         properties: {
-          id: { type: "string", format: "uuid" },
+          id: workspaceIdSchema,
           name: { type: "string" },
           status: { type: "string", enum: ["draft", "active", "archived"] },
           engineTarget: { type: "string", enum: ["unknown", "godot"] },
@@ -270,7 +271,7 @@ export const openApiDocument = {
       get: {
         summary: "Get workspace",
         security: [{ bearerAuth: [] }],
-        parameters: [{ name: "workspaceId", in: "path", required: true, schema: { type: "string", format: "uuid" } }],
+        parameters: [{ name: "workspaceId", in: "path", required: true, schema: workspaceIdSchema }],
         responses: {
           "200": { description: "Workspace detail", ...json(ref("WorkspaceResponse")) },
           "401": { description: "Unauthorized", ...json(ref("ErrorResponse")) },
