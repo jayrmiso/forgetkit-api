@@ -29,10 +29,14 @@ test("updateWorkspaceBodySchema accepts editable settings and rejects empty upda
   assert.throws(() => updateWorkspaceBodySchema.parse({}));
 });
 
-test("workspace schemas accept hyphenless workspace ids only", () => {
+test("workspace schemas accept hyphenless ids and normalize uuid route ids", () => {
   const workspaceId = "11111111111141118111111111111111";
 
   assert.equal(workspaceParamsSchema.parse({ workspaceId }).workspaceId, workspaceId);
+  assert.equal(
+    workspaceParamsSchema.parse({ workspaceId: "11111111-1111-4111-8111-111111111111" }).workspaceId,
+    workspaceId,
+  );
   assert.equal(workspaceSchema.parse({
     id: workspaceId,
     name: "Project Eclipse",
@@ -44,5 +48,5 @@ test("workspace schemas accept hyphenless workspace ids only", () => {
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
   }).id, workspaceId);
-  assert.throws(() => workspaceParamsSchema.parse({ workspaceId: "11111111-1111-4111-8111-111111111111" }));
+  assert.throws(() => workspaceParamsSchema.parse({ workspaceId: "not-a-workspace-id" }));
 });

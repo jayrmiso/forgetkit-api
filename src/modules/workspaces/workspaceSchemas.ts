@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { workspaceIdPattern } from "./workspaceId";
+import { normalizeWorkspaceId, workspaceIdPattern } from "./workspaceId";
 
 export const workspaceStatusSchema = z.enum(["draft", "active", "archived"]);
 export const engineTargetSchema = z.enum(["unknown", "godot"]);
@@ -21,7 +21,7 @@ export const updateWorkspaceBodySchema = z.object({
 });
 
 export const workspaceParamsSchema = z.object({
-  workspaceId: z.string().regex(workspaceIdPattern),
+  workspaceId: z.string().regex(workspaceIdPattern).transform(normalizeWorkspaceId),
 });
 
 export const workspaceSchema = z.object({
