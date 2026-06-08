@@ -91,6 +91,7 @@ export const WorkspaceScalarFieldEnum = {
   name: 'name',
   status: 'status',
   engineTarget: 'engineTarget',
+  visibility: 'visibility',
   activeMilestone: 'activeMilestone',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'

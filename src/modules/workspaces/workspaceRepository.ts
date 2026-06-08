@@ -1,5 +1,5 @@
 import type { WorkspaceMember } from "../../generated/prisma/client";
-import type { CreateWorkspaceInput } from "./workspaceSchemas";
+import type { CreateWorkspaceInput, UpdateWorkspaceInput } from "./workspaceSchemas";
 import { generateWorkspaceId } from "./workspaceId";
 
 export type WorkspaceWithMember = {
@@ -7,6 +7,7 @@ export type WorkspaceWithMember = {
   name: string;
   status: "draft" | "active" | "archived";
   engineTarget: "unknown" | "godot";
+  visibility: "private" | "unlisted" | "public";
   activeMilestone: string | null;
   createdAt: Date;
   updatedAt: Date;
@@ -29,6 +30,7 @@ export class WorkspaceRepository {
           id: generateWorkspaceId(),
           name: input.name,
           engineTarget: input.engineTarget,
+          visibility: input.visibility,
           members: {
             create: {
               userProfileId,
@@ -56,5 +58,22 @@ export class WorkspaceRepository {
       where: { id: workspaceId, members: { some: { userProfileId } } },
       include: { members: { where: { userProfileId } } },
     }) as Promise<WorkspaceWithMember | null>;
+  }
+
+  async updateByIdForOwner(workspaceId: string, userProfileId: string, input: UpdateWorkspaceInput): Promise<WorkspaceWithMember | null> {
+    const workspace = await this.db.workspace.findFirst({
+      where: { id: workspaceId, members: { some: { userProfileId, role: "owner" } } },
+      select: { id: true },
+    });
+
+    if (!workspace) {
+      return null;
+    }
+
+    return this.db.workspace.update({
+      where: { id: workspaceId },
+      data: input,
+      include: { members: { where: { userProfileId } } },
+    }) as Promise<WorkspaceWithMember>;
   }
 }

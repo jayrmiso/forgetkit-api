@@ -66,6 +66,7 @@ test("WorkspaceRepository creates hyphenless workspace ids", async () => {
               name: "Project Eclipse",
               status: "draft",
               engineTarget: "godot",
+              visibility: "private",
               activeMilestone: null,
               createdAt: now,
               updatedAt: now,
@@ -87,9 +88,62 @@ test("WorkspaceRepository creates hyphenless workspace ids", async () => {
   await repository.createForOwner("33333333-3333-4333-8333-333333333333", {
     name: "Project Eclipse",
     engineTarget: "godot",
+    visibility: "public",
   });
 
-  const createArgs = createdData as { data?: { id?: string } } | undefined;
+  const createArgs = createdData as { data?: { id?: string; visibility?: string } } | undefined;
   assert.ok(createArgs?.data?.id);
   assert.match(createArgs.data.id ?? "", hyphenlessWorkspaceId);
+  assert.equal(createArgs.data.visibility, "public");
+});
+
+test("WorkspaceRepository updates workspace settings for owners only", async () => {
+  const calls: Array<{ method: string; args: unknown }> = [];
+  const repository = new WorkspaceRepository({
+    workspace: {
+      findFirst: async (args: unknown) => {
+        calls.push({ method: "findFirst", args });
+        return { id: "11111111111141118111111111111111" };
+      },
+      update: async (args: unknown) => {
+        calls.push({ method: "update", args });
+        return {
+          id: "11111111111141118111111111111111",
+          name: "Public Project",
+          status: "draft",
+          engineTarget: "godot",
+          visibility: "public",
+          activeMilestone: null,
+          createdAt: now,
+          updatedAt: now,
+          members: [],
+        };
+      },
+    },
+  });
+
+  await repository.updateByIdForOwner(
+    "11111111111141118111111111111111",
+    "33333333-3333-4333-8333-333333333333",
+    { name: "Public Project", visibility: "public" },
+  );
+
+  assert.deepEqual(calls[0], {
+    method: "findFirst",
+    args: {
+      where: {
+        id: "11111111111141118111111111111111",
+        members: { some: { userProfileId: "33333333-3333-4333-8333-333333333333", role: "owner" } },
+      },
+      select: { id: true },
+    },
+  });
+  assert.deepEqual(calls[1], {
+    method: "update",
+    args: {
+      where: { id: "11111111111141118111111111111111" },
+      data: { name: "Public Project", visibility: "public" },
+      include: { members: { where: { userProfileId: "33333333-3333-4333-8333-333333333333" } } },
+    },
+  });
 });

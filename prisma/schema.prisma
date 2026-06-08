@@ -25,6 +25,7 @@ model Workspace {
   name            String
   status          WorkspaceStatus @default(draft)
   engineTarget    EngineTarget    @default(unknown)
+  visibility      WorkspaceVisibility @default(private)
   activeMilestone String?
   createdAt       DateTime        @default(now())
   updatedAt       DateTime        @updatedAt
@@ -87,6 +88,12 @@ enum EngineTarget {
 enum WorkspaceRole {
   owner
   member
+}
+
+enum WorkspaceVisibility {
+  private
+  unlisted
+  public
 }
 
 enum BlueprintStatus {

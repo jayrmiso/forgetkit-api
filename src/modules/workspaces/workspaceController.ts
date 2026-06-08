@@ -36,3 +36,13 @@ export const getWorkspace: RequestHandler = async (req, res, next) => {
     next(error);
   }
 };
+
+export const updateWorkspace: RequestHandler = async (req, res, next) => {
+  try {
+    if (!req.auth) throw new AppError("UNAUTHORIZED", "Missing auth context", 401);
+    const workspace = await workspaceService.updateWorkspace(req.auth.userId, String(req.params.workspaceId), req.body);
+    sendSuccess(res, { workspace });
+  } catch (error) {
+    next(error);
+  }
+};

@@ -34,6 +34,15 @@ export const WorkspaceRole = {
 export type WorkspaceRole = (typeof WorkspaceRole)[keyof typeof WorkspaceRole]
 
 
+export const WorkspaceVisibility = {
+  private: 'private',
+  unlisted: 'unlisted',
+  public: 'public'
+} as const
+
+export type WorkspaceVisibility = (typeof WorkspaceVisibility)[keyof typeof WorkspaceVisibility]
+
+
 export const BlueprintStatus = {
   draft: 'draft',
   approved: 'approved',

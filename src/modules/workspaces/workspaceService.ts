@@ -1,11 +1,12 @@
 import { AppError } from "../../shared/errors/AppError";
-import type { CreateWorkspaceInput, WorkspaceDto } from "./workspaceSchemas";
+import type { CreateWorkspaceInput, UpdateWorkspaceInput, WorkspaceDto } from "./workspaceSchemas";
 
 export type WorkspaceWithMember = {
   id: string;
   name: string;
   status: "draft" | "active" | "archived";
   engineTarget: "unknown" | "godot";
+  visibility: "private" | "unlisted" | "public";
   activeMilestone: string | null;
   createdAt: Date;
   updatedAt: Date;
@@ -16,6 +17,7 @@ export type WorkspaceRepositoryLike = {
   createForOwner(userProfileId: string, input: CreateWorkspaceInput): Promise<WorkspaceWithMember>;
   findManyForUserProfile(userProfileId: string): Promise<WorkspaceWithMember[]>;
   findByIdForUserProfile(workspaceId: string, userProfileId: string): Promise<WorkspaceWithMember | null>;
+  updateByIdForOwner(workspaceId: string, userProfileId: string, input: UpdateWorkspaceInput): Promise<WorkspaceWithMember | null>;
 };
 
 function toDto(workspace: WorkspaceWithMember): WorkspaceDto {
@@ -26,6 +28,7 @@ function toDto(workspace: WorkspaceWithMember): WorkspaceDto {
     name: workspace.name,
     status: workspace.status,
     engineTarget: workspace.engineTarget,
+    visibility: workspace.visibility,
     activeMilestone: workspace.activeMilestone,
     role: member?.role ?? "member",
     createdAt: workspace.createdAt.toISOString(),
@@ -48,6 +51,16 @@ export class WorkspaceService {
 
   async getWorkspace(userProfileId: string, workspaceId: string): Promise<WorkspaceDto> {
     const workspace = await this.repository.findByIdForUserProfile(workspaceId, userProfileId);
+
+    if (!workspace) {
+      throw new AppError("WORKSPACE_NOT_FOUND", "Workspace not found", 404);
+    }
+
+    return toDto(workspace);
+  }
+
+  async updateWorkspace(userProfileId: string, workspaceId: string, input: UpdateWorkspaceInput): Promise<WorkspaceDto> {
+    const workspace = await this.repository.updateByIdForOwner(workspaceId, userProfileId, input);
 
     if (!workspace) {
       throw new AppError("WORKSPACE_NOT_FOUND", "Workspace not found", 404);

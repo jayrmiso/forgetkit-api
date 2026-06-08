@@ -83,12 +83,13 @@ export const openApiDocument = {
       },
       Workspace: {
         type: "object",
-        required: ["id", "name", "status", "engineTarget", "activeMilestone", "role", "createdAt", "updatedAt"],
+        required: ["id", "name", "status", "engineTarget", "visibility", "activeMilestone", "role", "createdAt", "updatedAt"],
         properties: {
           id: workspaceIdSchema,
           name: { type: "string" },
           status: { type: "string", enum: ["draft", "active", "archived"] },
           engineTarget: { type: "string", enum: ["unknown", "godot"] },
+          visibility: { type: "string", enum: ["private", "unlisted", "public"] },
           activeMilestone: { type: ["string", "null"] },
           role: { type: "string", enum: ["owner", "member"] },
           createdAt: { type: "string", format: "date-time" },
@@ -179,6 +180,16 @@ export const openApiDocument = {
         properties: {
           name: { type: "string", minLength: 1, maxLength: 120 },
           engineTarget: { type: "string", enum: ["unknown", "godot"], default: "unknown" },
+          visibility: { type: "string", enum: ["private", "unlisted", "public"], default: "private" },
+        },
+      },
+      UpdateWorkspaceRequest: {
+        type: "object",
+        minProperties: 1,
+        properties: {
+          name: { type: "string", minLength: 1, maxLength: 120 },
+          engineTarget: { type: "string", enum: ["unknown", "godot"] },
+          visibility: { type: "string", enum: ["private", "unlisted", "public"] },
         },
       },
     },
@@ -274,6 +285,18 @@ export const openApiDocument = {
         parameters: [{ name: "workspaceId", in: "path", required: true, schema: workspaceIdSchema }],
         responses: {
           "200": { description: "Workspace detail", ...json(ref("WorkspaceResponse")) },
+          "401": { description: "Unauthorized", ...json(ref("ErrorResponse")) },
+          "404": { description: "Workspace not found", ...json(ref("ErrorResponse")) },
+        },
+      },
+      patch: {
+        summary: "Update workspace settings",
+        security: [{ bearerAuth: [] }],
+        parameters: [{ name: "workspaceId", in: "path", required: true, schema: workspaceIdSchema }],
+        requestBody: { required: true, content: { "application/json": { schema: ref("UpdateWorkspaceRequest") } } },
+        responses: {
+          "200": { description: "Workspace updated", ...json(ref("WorkspaceResponse")) },
+          "400": { description: "Validation error", ...json(ref("ErrorResponse")) },
           "401": { description: "Unauthorized", ...json(ref("ErrorResponse")) },
           "404": { description: "Workspace not found", ...json(ref("ErrorResponse")) },
         },

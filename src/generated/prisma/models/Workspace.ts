@@ -29,6 +29,7 @@ export type WorkspaceMinAggregateOutputType = {
   name: string | null
   status: $Enums.WorkspaceStatus | null
   engineTarget: $Enums.EngineTarget | null
+  visibility: $Enums.WorkspaceVisibility | null
   activeMilestone: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -39,6 +40,7 @@ export type WorkspaceMaxAggregateOutputType = {
   name: string | null
   status: $Enums.WorkspaceStatus | null
   engineTarget: $Enums.EngineTarget | null
+  visibility: $Enums.WorkspaceVisibility | null
   activeMilestone: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -49,6 +51,7 @@ export type WorkspaceCountAggregateOutputType = {
   name: number
   status: number
   engineTarget: number
+  visibility: number
   activeMilestone: number
   createdAt: number
   updatedAt: number
@@ -61,6 +64,7 @@ export type WorkspaceMinAggregateInputType = {
   name?: true
   status?: true
   engineTarget?: true
+  visibility?: true
   activeMilestone?: true
   createdAt?: true
   updatedAt?: true
@@ -71,6 +75,7 @@ export type WorkspaceMaxAggregateInputType = {
   name?: true
   status?: true
   engineTarget?: true
+  visibility?: true
   activeMilestone?: true
   createdAt?: true
   updatedAt?: true
@@ -81,6 +86,7 @@ export type WorkspaceCountAggregateInputType = {
   name?: true
   status?: true
   engineTarget?: true
+  visibility?: true
   activeMilestone?: true
   createdAt?: true
   updatedAt?: true
@@ -164,6 +170,7 @@ export type WorkspaceGroupByOutputType = {
   name: string
   status: $Enums.WorkspaceStatus
   engineTarget: $Enums.EngineTarget
+  visibility: $Enums.WorkspaceVisibility
   activeMilestone: string | null
   createdAt: Date
   updatedAt: Date
@@ -195,6 +202,7 @@ export type WorkspaceWhereInput = {
   name?: Prisma.StringFilter<"Workspace"> | string
   status?: Prisma.EnumWorkspaceStatusFilter<"Workspace"> | $Enums.WorkspaceStatus
   engineTarget?: Prisma.EnumEngineTargetFilter<"Workspace"> | $Enums.EngineTarget
+  visibility?: Prisma.EnumWorkspaceVisibilityFilter<"Workspace"> | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.StringNullableFilter<"Workspace"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Workspace"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Workspace"> | Date | string
@@ -208,6 +216,7 @@ export type WorkspaceOrderByWithRelationInput = {
   name?: Prisma.SortOrder
   status?: Prisma.SortOrder
   engineTarget?: Prisma.SortOrder
+  visibility?: Prisma.SortOrder
   activeMilestone?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -224,6 +233,7 @@ export type WorkspaceWhereUniqueInput = Prisma.AtLeast<{
   name?: Prisma.StringFilter<"Workspace"> | string
   status?: Prisma.EnumWorkspaceStatusFilter<"Workspace"> | $Enums.WorkspaceStatus
   engineTarget?: Prisma.EnumEngineTargetFilter<"Workspace"> | $Enums.EngineTarget
+  visibility?: Prisma.EnumWorkspaceVisibilityFilter<"Workspace"> | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.StringNullableFilter<"Workspace"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Workspace"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Workspace"> | Date | string
@@ -237,6 +247,7 @@ export type WorkspaceOrderByWithAggregationInput = {
   name?: Prisma.SortOrder
   status?: Prisma.SortOrder
   engineTarget?: Prisma.SortOrder
+  visibility?: Prisma.SortOrder
   activeMilestone?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -253,6 +264,7 @@ export type WorkspaceScalarWhereWithAggregatesInput = {
   name?: Prisma.StringWithAggregatesFilter<"Workspace"> | string
   status?: Prisma.EnumWorkspaceStatusWithAggregatesFilter<"Workspace"> | $Enums.WorkspaceStatus
   engineTarget?: Prisma.EnumEngineTargetWithAggregatesFilter<"Workspace"> | $Enums.EngineTarget
+  visibility?: Prisma.EnumWorkspaceVisibilityWithAggregatesFilter<"Workspace"> | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Workspace"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Workspace"> | Date | string
@@ -263,6 +275,7 @@ export type WorkspaceCreateInput = {
   name: string
   status?: $Enums.WorkspaceStatus
   engineTarget?: $Enums.EngineTarget
+  visibility?: $Enums.WorkspaceVisibility
   activeMilestone?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -276,6 +289,7 @@ export type WorkspaceUncheckedCreateInput = {
   name: string
   status?: $Enums.WorkspaceStatus
   engineTarget?: $Enums.EngineTarget
+  visibility?: $Enums.WorkspaceVisibility
   activeMilestone?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -289,6 +303,7 @@ export type WorkspaceUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumWorkspaceStatusFieldUpdateOperationsInput | $Enums.WorkspaceStatus
   engineTarget?: Prisma.EnumEngineTargetFieldUpdateOperationsInput | $Enums.EngineTarget
+  visibility?: Prisma.EnumWorkspaceVisibilityFieldUpdateOperationsInput | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -302,6 +317,7 @@ export type WorkspaceUncheckedUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumWorkspaceStatusFieldUpdateOperationsInput | $Enums.WorkspaceStatus
   engineTarget?: Prisma.EnumEngineTargetFieldUpdateOperationsInput | $Enums.EngineTarget
+  visibility?: Prisma.EnumWorkspaceVisibilityFieldUpdateOperationsInput | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -315,6 +331,7 @@ export type WorkspaceCreateManyInput = {
   name: string
   status?: $Enums.WorkspaceStatus
   engineTarget?: $Enums.EngineTarget
+  visibility?: $Enums.WorkspaceVisibility
   activeMilestone?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -325,6 +342,7 @@ export type WorkspaceUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumWorkspaceStatusFieldUpdateOperationsInput | $Enums.WorkspaceStatus
   engineTarget?: Prisma.EnumEngineTargetFieldUpdateOperationsInput | $Enums.EngineTarget
+  visibility?: Prisma.EnumWorkspaceVisibilityFieldUpdateOperationsInput | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -335,6 +353,7 @@ export type WorkspaceUncheckedUpdateManyInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumWorkspaceStatusFieldUpdateOperationsInput | $Enums.WorkspaceStatus
   engineTarget?: Prisma.EnumEngineTargetFieldUpdateOperationsInput | $Enums.EngineTarget
+  visibility?: Prisma.EnumWorkspaceVisibilityFieldUpdateOperationsInput | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -345,6 +364,7 @@ export type WorkspaceCountOrderByAggregateInput = {
   name?: Prisma.SortOrder
   status?: Prisma.SortOrder
   engineTarget?: Prisma.SortOrder
+  visibility?: Prisma.SortOrder
   activeMilestone?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -355,6 +375,7 @@ export type WorkspaceMaxOrderByAggregateInput = {
   name?: Prisma.SortOrder
   status?: Prisma.SortOrder
   engineTarget?: Prisma.SortOrder
+  visibility?: Prisma.SortOrder
   activeMilestone?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -365,6 +386,7 @@ export type WorkspaceMinOrderByAggregateInput = {
   name?: Prisma.SortOrder
   status?: Prisma.SortOrder
   engineTarget?: Prisma.SortOrder
+  visibility?: Prisma.SortOrder
   activeMilestone?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -381,6 +403,10 @@ export type EnumWorkspaceStatusFieldUpdateOperationsInput = {
 
 export type EnumEngineTargetFieldUpdateOperationsInput = {
   set?: $Enums.EngineTarget
+}
+
+export type EnumWorkspaceVisibilityFieldUpdateOperationsInput = {
+  set?: $Enums.WorkspaceVisibility
 }
 
 export type WorkspaceCreateNestedOneWithoutMembersInput = {
@@ -430,6 +456,7 @@ export type WorkspaceCreateWithoutMembersInput = {
   name: string
   status?: $Enums.WorkspaceStatus
   engineTarget?: $Enums.EngineTarget
+  visibility?: $Enums.WorkspaceVisibility
   activeMilestone?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -442,6 +469,7 @@ export type WorkspaceUncheckedCreateWithoutMembersInput = {
   name: string
   status?: $Enums.WorkspaceStatus
   engineTarget?: $Enums.EngineTarget
+  visibility?: $Enums.WorkspaceVisibility
   activeMilestone?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -470,6 +498,7 @@ export type WorkspaceUpdateWithoutMembersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumWorkspaceStatusFieldUpdateOperationsInput | $Enums.WorkspaceStatus
   engineTarget?: Prisma.EnumEngineTargetFieldUpdateOperationsInput | $Enums.EngineTarget
+  visibility?: Prisma.EnumWorkspaceVisibilityFieldUpdateOperationsInput | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -482,6 +511,7 @@ export type WorkspaceUncheckedUpdateWithoutMembersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumWorkspaceStatusFieldUpdateOperationsInput | $Enums.WorkspaceStatus
   engineTarget?: Prisma.EnumEngineTargetFieldUpdateOperationsInput | $Enums.EngineTarget
+  visibility?: Prisma.EnumWorkspaceVisibilityFieldUpdateOperationsInput | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -494,6 +524,7 @@ export type WorkspaceCreateWithoutGameConceptsInput = {
   name: string
   status?: $Enums.WorkspaceStatus
   engineTarget?: $Enums.EngineTarget
+  visibility?: $Enums.WorkspaceVisibility
   activeMilestone?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -506,6 +537,7 @@ export type WorkspaceUncheckedCreateWithoutGameConceptsInput = {
   name: string
   status?: $Enums.WorkspaceStatus
   engineTarget?: $Enums.EngineTarget
+  visibility?: $Enums.WorkspaceVisibility
   activeMilestone?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -534,6 +566,7 @@ export type WorkspaceUpdateWithoutGameConceptsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumWorkspaceStatusFieldUpdateOperationsInput | $Enums.WorkspaceStatus
   engineTarget?: Prisma.EnumEngineTargetFieldUpdateOperationsInput | $Enums.EngineTarget
+  visibility?: Prisma.EnumWorkspaceVisibilityFieldUpdateOperationsInput | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -546,6 +579,7 @@ export type WorkspaceUncheckedUpdateWithoutGameConceptsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumWorkspaceStatusFieldUpdateOperationsInput | $Enums.WorkspaceStatus
   engineTarget?: Prisma.EnumEngineTargetFieldUpdateOperationsInput | $Enums.EngineTarget
+  visibility?: Prisma.EnumWorkspaceVisibilityFieldUpdateOperationsInput | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -558,6 +592,7 @@ export type WorkspaceCreateWithoutGameBlueprintsInput = {
   name: string
   status?: $Enums.WorkspaceStatus
   engineTarget?: $Enums.EngineTarget
+  visibility?: $Enums.WorkspaceVisibility
   activeMilestone?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -570,6 +605,7 @@ export type WorkspaceUncheckedCreateWithoutGameBlueprintsInput = {
   name: string
   status?: $Enums.WorkspaceStatus
   engineTarget?: $Enums.EngineTarget
+  visibility?: $Enums.WorkspaceVisibility
   activeMilestone?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -598,6 +634,7 @@ export type WorkspaceUpdateWithoutGameBlueprintsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumWorkspaceStatusFieldUpdateOperationsInput | $Enums.WorkspaceStatus
   engineTarget?: Prisma.EnumEngineTargetFieldUpdateOperationsInput | $Enums.EngineTarget
+  visibility?: Prisma.EnumWorkspaceVisibilityFieldUpdateOperationsInput | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -610,6 +647,7 @@ export type WorkspaceUncheckedUpdateWithoutGameBlueprintsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumWorkspaceStatusFieldUpdateOperationsInput | $Enums.WorkspaceStatus
   engineTarget?: Prisma.EnumEngineTargetFieldUpdateOperationsInput | $Enums.EngineTarget
+  visibility?: Prisma.EnumWorkspaceVisibilityFieldUpdateOperationsInput | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -671,6 +709,7 @@ export type WorkspaceSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   name?: boolean
   status?: boolean
   engineTarget?: boolean
+  visibility?: boolean
   activeMilestone?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -685,6 +724,7 @@ export type WorkspaceSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   name?: boolean
   status?: boolean
   engineTarget?: boolean
+  visibility?: boolean
   activeMilestone?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -695,6 +735,7 @@ export type WorkspaceSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   name?: boolean
   status?: boolean
   engineTarget?: boolean
+  visibility?: boolean
   activeMilestone?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -705,12 +746,13 @@ export type WorkspaceSelectScalar = {
   name?: boolean
   status?: boolean
   engineTarget?: boolean
+  visibility?: boolean
   activeMilestone?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type WorkspaceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "status" | "engineTarget" | "activeMilestone" | "createdAt" | "updatedAt", ExtArgs["result"]["workspace"]>
+export type WorkspaceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "status" | "engineTarget" | "visibility" | "activeMilestone" | "createdAt" | "updatedAt", ExtArgs["result"]["workspace"]>
 export type WorkspaceInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   members?: boolean | Prisma.Workspace$membersArgs<ExtArgs>
   gameConcepts?: boolean | Prisma.Workspace$gameConceptsArgs<ExtArgs>
@@ -732,6 +774,7 @@ export type $WorkspacePayload<ExtArgs extends runtime.Types.Extensions.InternalA
     name: string
     status: $Enums.WorkspaceStatus
     engineTarget: $Enums.EngineTarget
+    visibility: $Enums.WorkspaceVisibility
     activeMilestone: string | null
     createdAt: Date
     updatedAt: Date
@@ -1165,6 +1208,7 @@ export interface WorkspaceFieldRefs {
   readonly name: Prisma.FieldRef<"Workspace", 'String'>
   readonly status: Prisma.FieldRef<"Workspace", 'WorkspaceStatus'>
   readonly engineTarget: Prisma.FieldRef<"Workspace", 'EngineTarget'>
+  readonly visibility: Prisma.FieldRef<"Workspace", 'WorkspaceVisibility'>
   readonly activeMilestone: Prisma.FieldRef<"Workspace", 'String'>
   readonly createdAt: Prisma.FieldRef<"Workspace", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Workspace", 'DateTime'>

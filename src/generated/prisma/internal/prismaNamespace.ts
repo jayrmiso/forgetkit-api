@@ -834,6 +834,7 @@ export const WorkspaceScalarFieldEnum = {
   name: 'name',
   status: 'status',
   engineTarget: 'engineTarget',
+  visibility: 'visibility',
   activeMilestone: 'activeMilestone',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -980,6 +981,20 @@ export type EnumEngineTargetFieldRefInput<$PrismaModel> = FieldRefInputType<$Pri
  * Reference to a field of type 'EngineTarget[]'
  */
 export type ListEnumEngineTargetFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EngineTarget[]'>
+    
+
+
+/**
+ * Reference to a field of type 'WorkspaceVisibility'
+ */
+export type EnumWorkspaceVisibilityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WorkspaceVisibility'>
+    
+
+
+/**
+ * Reference to a field of type 'WorkspaceVisibility[]'
+ */
+export type ListEnumWorkspaceVisibilityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WorkspaceVisibility[]'>
     
 
 

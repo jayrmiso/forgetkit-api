@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { createWorkspaceBodySchema } from "./workspaceSchemas";
+import { createWorkspaceBodySchema, updateWorkspaceBodySchema } from "./workspaceSchemas";
 import { workspaceParamsSchema, workspaceSchema } from "./workspaceSchemas";
 
 test("createWorkspaceBodySchema trims names and defaults engine target", () => {
@@ -8,10 +8,25 @@ test("createWorkspaceBodySchema trims names and defaults engine target", () => {
 
   assert.equal(result.name, "Project Eclipse");
   assert.equal(result.engineTarget, "unknown");
+  assert.equal(result.visibility, "private");
 });
 
 test("createWorkspaceBodySchema rejects empty names", () => {
   assert.throws(() => createWorkspaceBodySchema.parse({ name: "   " }));
+});
+
+test("updateWorkspaceBodySchema accepts editable settings and rejects empty updates", () => {
+  assert.deepEqual(updateWorkspaceBodySchema.parse({
+    name: "  Project Eclipse  ",
+    engineTarget: "godot",
+    visibility: "public",
+  }), {
+    name: "Project Eclipse",
+    engineTarget: "godot",
+    visibility: "public",
+  });
+
+  assert.throws(() => updateWorkspaceBodySchema.parse({}));
 });
 
 test("workspace schemas accept hyphenless workspace ids only", () => {
@@ -23,6 +38,7 @@ test("workspace schemas accept hyphenless workspace ids only", () => {
     name: "Project Eclipse",
     status: "draft",
     engineTarget: "godot",
+    visibility: "public",
     activeMilestone: null,
     role: "owner",
     createdAt: new Date().toISOString(),

@@ -12,6 +12,7 @@ function workspace(overrides: Partial<WorkspaceWithMember> = {}): WorkspaceWithM
     name: "Project Eclipse",
     status: "draft",
     engineTarget: "godot",
+    visibility: "private",
     activeMilestone: null,
     createdAt: now,
     updatedAt: now,
@@ -33,16 +34,19 @@ test("WorkspaceService creates workspace DTO with owner role", async () => {
     createForOwner: async () => workspace(),
     findManyForUserProfile: async () => [],
     findByIdForUserProfile: async () => null,
+    updateByIdForOwner: async () => null,
   });
 
   const result = await service.createWorkspace("33333333-3333-4333-8333-333333333333", {
     name: "Project Eclipse",
     engineTarget: "godot",
+    visibility: "private",
   });
 
   assert.equal(result.name, "Project Eclipse");
   assert.equal(result.role, "owner");
   assert.equal(result.engineTarget, "godot");
+  assert.equal(result.visibility, "private");
 });
 
 test("WorkspaceService returns 404 for inaccessible workspace", async () => {
@@ -50,10 +54,51 @@ test("WorkspaceService returns 404 for inaccessible workspace", async () => {
     createForOwner: async () => workspace(),
     findManyForUserProfile: async () => [],
     findByIdForUserProfile: async () => null,
+    updateByIdForOwner: async () => null,
   });
 
   await assert.rejects(
     () => service.getWorkspace("33333333-3333-4333-8333-333333333333", "11111111111141118111111111111111"),
+    (error) => error instanceof AppError && error.code === "WORKSPACE_NOT_FOUND" && error.statusCode === 404,
+  );
+});
+
+test("WorkspaceService updates owner workspace settings", async () => {
+  const service = new WorkspaceService({
+    createForOwner: async () => workspace(),
+    findManyForUserProfile: async () => [],
+    findByIdForUserProfile: async () => null,
+    updateByIdForOwner: async (_workspaceId, _userProfileId, input) => workspace({
+      name: input.name ?? "Project Eclipse",
+      engineTarget: input.engineTarget ?? "godot",
+      visibility: input.visibility ?? "private",
+    }),
+  });
+
+  const result = await service.updateWorkspace(
+    "33333333-3333-4333-8333-333333333333",
+    "11111111111141118111111111111111",
+    { name: "Public Project", visibility: "public" },
+  );
+
+  assert.equal(result.name, "Public Project");
+  assert.equal(result.visibility, "public");
+});
+
+test("WorkspaceService returns 404 for non-owner workspace update", async () => {
+  const service = new WorkspaceService({
+    createForOwner: async () => workspace(),
+    findManyForUserProfile: async () => [],
+    findByIdForUserProfile: async () => null,
+    updateByIdForOwner: async () => null,
+  });
+
+  await assert.rejects(
+    () => service.updateWorkspace(
+      "33333333-3333-4333-8333-333333333333",
+      "11111111111141118111111111111111",
+      { visibility: "public" },
+    ),
     (error) => error instanceof AppError && error.code === "WORKSPACE_NOT_FOUND" && error.statusCode === 404,
   );
 });
