@@ -34,7 +34,7 @@ test("SearchRepository scopes user search to profiles with usernames", async () 
   });
 });
 
-test("SearchRepository searches only public workspaces and includes owner username", async () => {
+test("SearchRepository fetches only public workspace candidates and includes owner username", async () => {
   let capturedArgs: unknown;
   const repository = new SearchRepository({
     workspace: {
@@ -50,7 +50,6 @@ test("SearchRepository searches only public workspaces and includes owner userna
   assert.deepEqual(capturedArgs, {
     where: {
       visibility: "public",
-      name: { contains: "atlas", mode: "insensitive" },
     },
     include: {
       members: {
@@ -64,6 +63,6 @@ test("SearchRepository searches only public workspaces and includes owner userna
       },
     },
     orderBy: [{ updatedAt: "desc" }, { name: "asc" }],
-    take: 8,
+    take: 100,
   });
 });

@@ -64,6 +64,66 @@ test("SearchService respects type filters", async () => {
   assert.equal(results[0].type, "user");
 });
 
+test("SearchService flexibly matches public workspaces and keeps owner usernames", async () => {
+  const repository: SearchRepositoryLike = {
+    async searchUsers() {
+      return [];
+    },
+    async searchPublicWorkspaces() {
+      return [
+        {
+          id: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          name: "hello A world",
+          visibility: "public",
+          members: [{ role: "owner", userProfile: { username: "owner-one" } }],
+        },
+        {
+          id: "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          name: "unrelated world",
+          visibility: "public",
+          members: [{ role: "owner", userProfile: { username: "owner-two" } }],
+        },
+      ];
+    },
+  };
+  const service = new SearchService(repository);
+
+  const results = await service.search({ query: "helloworld A", types: ["workspace"] });
+
+  assert.deepEqual(results, [
+    {
+      type: "workspace",
+      id: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      name: "hello A world",
+      ownerUsername: "owner-one",
+      visibility: "public",
+    },
+  ]);
+});
+
+test("SearchService excludes workspace results without owner usernames", async () => {
+  const repository: SearchRepositoryLike = {
+    async searchUsers() {
+      return [];
+    },
+    async searchPublicWorkspaces() {
+      return [
+        {
+          id: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          name: "Pixel Atlas",
+          visibility: "public",
+          members: [{ role: "owner", userProfile: { username: null } }],
+        },
+      ];
+    },
+  };
+  const service = new SearchService(repository);
+
+  const results = await service.search({ query: "pixel", types: ["workspace"] });
+
+  assert.deepEqual(results, []);
+});
+
 test("SearchService skips users without usernames", async () => {
   const repository: SearchRepositoryLike = {
     async searchUsers() {

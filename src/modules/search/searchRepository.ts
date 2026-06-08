@@ -1,4 +1,5 @@
 const SEARCH_RESULT_LIMIT = 8;
+const WORKSPACE_CANDIDATE_LIMIT = 100;
 
 export type UserSearchRecord = {
   id: string;
@@ -41,11 +42,10 @@ export class SearchRepository {
     });
   }
 
-  async searchPublicWorkspaces(query: string): Promise<WorkspaceSearchRecord[]> {
+  async searchPublicWorkspaces(_query: string): Promise<WorkspaceSearchRecord[]> {
     return this.db.workspace.findMany({
       where: {
         visibility: "public",
-        name: { contains: query, mode: "insensitive" },
       },
       include: {
         members: {
@@ -59,7 +59,7 @@ export class SearchRepository {
         },
       },
       orderBy: [{ updatedAt: "desc" }, { name: "asc" }],
-      take: SEARCH_RESULT_LIMIT,
+      take: WORKSPACE_CANDIDATE_LIMIT,
     });
   }
 }
