@@ -7,6 +7,7 @@ test("OpenAPI document includes docs for protected workspace routes", () => {
   assert.ok(openApiDocument.components.securitySchemes.bearerAuth);
   assert.ok(openApiDocument.paths["/v1/workspaces"]);
   assert.ok(openApiDocument.paths["/v1/workspaces/{workspaceId}"]);
+  assert.ok(openApiDocument.paths["/v1/search"]);
 });
 
 test("OpenAPI workspace responses include concrete JSON schemas", () => {
@@ -29,4 +30,23 @@ test("OpenAPI root status route documents its response payload", () => {
   const rootStatus = openApiDocument.paths["/"].get.responses["200"];
 
   assert.deepEqual(rootStatus.content["application/json"].schema, { $ref: "#/components/schemas/ServiceStatusResponse" });
+});
+
+test("OpenAPI search route documents query params and result schema", () => {
+  const searchRoute = openApiDocument.paths["/v1/search"].get;
+  const searchResponse = searchRoute.responses["200"];
+  const queryParam = searchRoute.parameters[0];
+  const typesParam = searchRoute.parameters[1];
+  const searchSchema = openApiDocument.components.schemas.SearchResponse;
+
+  assert.deepEqual(searchRoute.security, [{ bearerAuth: [] }]);
+  assert.equal(queryParam.name, "query");
+  assert.equal(queryParam.schema.minLength, 2);
+  assert.equal(queryParam.schema.maxLength, 80);
+  assert.equal(typesParam.name, "types");
+  assert.deepEqual(searchResponse.content["application/json"].schema, { $ref: "#/components/schemas/SearchResponse" });
+  assert.deepEqual(searchSchema.properties.data.properties.results.items.oneOf, [
+    { $ref: "#/components/schemas/SearchUserResult" },
+    { $ref: "#/components/schemas/SearchWorkspaceResult" },
+  ]);
 });

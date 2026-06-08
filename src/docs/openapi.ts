@@ -192,6 +192,46 @@ export const openApiDocument = {
           visibility: { type: "string", enum: ["private", "unlisted", "public"] },
         },
       },
+      SearchUserResult: {
+        type: "object",
+        required: ["type", "id", "username", "displayName"],
+        properties: {
+          type: { type: "string", enum: ["user"] },
+          id: { type: "string", format: "uuid" },
+          username: { type: "string" },
+          displayName: { type: ["string", "null"] },
+        },
+      },
+      SearchWorkspaceResult: {
+        type: "object",
+        required: ["type", "id", "name", "ownerUsername", "visibility"],
+        properties: {
+          type: { type: "string", enum: ["workspace"] },
+          id: workspaceIdSchema,
+          name: { type: "string" },
+          ownerUsername: { type: ["string", "null"] },
+          visibility: { type: "string", enum: ["public"] },
+        },
+      },
+      SearchResponse: {
+        type: "object",
+        required: ["data"],
+        properties: {
+          data: {
+            type: "object",
+            required: ["results"],
+            properties: {
+              results: {
+                type: "array",
+                items: {
+                  oneOf: [ref("SearchUserResult"), ref("SearchWorkspaceResult")],
+                  discriminator: { propertyName: "type" },
+                },
+              },
+            },
+          },
+        },
+      },
     },
   },
   paths: {
@@ -216,6 +256,27 @@ export const openApiDocument = {
         security: [{ bearerAuth: [] }],
         responses: {
           "200": { description: "Current profile", ...json(ref("UserProfileResponse")) },
+          "401": { description: "Unauthorized", ...json(ref("ErrorResponse")) },
+        },
+      },
+    },
+    "/v1/search": {
+      get: {
+        summary: "Search users and public workspaces",
+        security: [{ bearerAuth: [] }],
+        parameters: [
+          { name: "query", in: "query", required: true, schema: { type: "string", minLength: 2, maxLength: 80 } },
+          {
+            name: "types",
+            in: "query",
+            required: false,
+            schema: { type: "string", pattern: "^(user|workspace)(,(user|workspace))*$" },
+            description: "Comma-separated result type filter. Defaults to user,workspace.",
+          },
+        ],
+        responses: {
+          "200": { description: "Search results", ...json(ref("SearchResponse")) },
+          "400": { description: "Validation error", ...json(ref("ErrorResponse")) },
           "401": { description: "Unauthorized", ...json(ref("ErrorResponse")) },
         },
       },

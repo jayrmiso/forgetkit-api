@@ -15,11 +15,22 @@ Authorization: Bearer <supabase_access_token>
 - `POST /v1/auth/resolve-identifier`
 - `GET /v1/auth/verification-status`
 - `POST /v1/auth/resend-verification`
+- `GET /v1/search`
 - `GET /v1/workspaces`
 - `POST /v1/workspaces`
 - `GET /v1/workspaces/:workspaceId`
 
 Workspace ids are canonical 32-character lowercase hex strings with no hyphens.
+
+## Search
+
+`GET /v1/search?query=<text>&types=user,workspace` searches authenticated discovery surfaces.
+
+- `query` is required, trimmed, and must be 2-80 characters.
+- `types` is optional and accepts a comma-separated list of `user` and `workspace`; it defaults to both.
+- User results include `id`, `username`, and `displayName`.
+- Workspace results include only public workspaces and return `id`, `name`, `ownerUsername`, and `visibility`.
+- Private and unlisted workspaces are excluded from global search results.
 
 ## Responsibility Split
 
