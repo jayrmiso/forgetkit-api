@@ -38,6 +38,7 @@ test("OpenAPI search route documents query params and result schema", () => {
   const queryParam = searchRoute.parameters[0];
   const typesParam = searchRoute.parameters[1];
   const searchSchema = openApiDocument.components.schemas.SearchResponse;
+  const workspaceResultSchema = openApiDocument.components.schemas.SearchWorkspaceResult;
 
   assert.deepEqual(searchRoute.security, [{ bearerAuth: [] }]);
   assert.equal(queryParam.name, "query");
@@ -49,4 +50,5 @@ test("OpenAPI search route documents query params and result schema", () => {
     { $ref: "#/components/schemas/SearchUserResult" },
     { $ref: "#/components/schemas/SearchWorkspaceResult" },
   ]);
+  assert.deepEqual(workspaceResultSchema.properties.ownerUsername, { type: "string" });
 });

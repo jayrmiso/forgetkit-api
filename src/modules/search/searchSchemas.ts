@@ -33,7 +33,7 @@ export const workspaceSearchResultSchema = z.object({
   type: z.literal("workspace"),
   id: z.string(),
   name: z.string(),
-  ownerUsername: z.string().nullable(),
+  ownerUsername: z.string(),
   visibility: z.literal("public"),
 });
 

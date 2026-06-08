@@ -209,7 +209,7 @@ export const openApiDocument = {
           type: { type: "string", enum: ["workspace"] },
           id: workspaceIdSchema,
           name: { type: "string" },
-          ownerUsername: { type: ["string", "null"] },
+          ownerUsername: { type: "string" },
           visibility: { type: "string", enum: ["public"] },
         },
       },
