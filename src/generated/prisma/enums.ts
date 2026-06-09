@@ -43,6 +43,18 @@ export const WorkspaceVisibility = {
 export type WorkspaceVisibility = (typeof WorkspaceVisibility)[keyof typeof WorkspaceVisibility]
 
 
+export const CameraView = {
+  unknown: 'unknown',
+  top_down: 'top_down',
+  side_scroller: 'side_scroller',
+  isometric: 'isometric',
+  first_person: 'first_person',
+  third_person: 'third_person'
+} as const
+
+export type CameraView = (typeof CameraView)[keyof typeof CameraView]
+
+
 export const BlueprintStatus = {
   draft: 'draft',
   approved: 'approved',

@@ -140,6 +140,13 @@ export type EnumWorkspaceVisibilityFilter<$PrismaModel = never> = {
   not?: Prisma.NestedEnumWorkspaceVisibilityFilter<$PrismaModel> | $Enums.WorkspaceVisibility
 }
 
+export type EnumCameraViewNullableFilter<$PrismaModel = never> = {
+  equals?: $Enums.CameraView | Prisma.EnumCameraViewFieldRefInput<$PrismaModel> | null
+  in?: $Enums.CameraView[] | Prisma.ListEnumCameraViewFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.CameraView[] | Prisma.ListEnumCameraViewFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumCameraViewNullableFilter<$PrismaModel> | $Enums.CameraView | null
+}
+
 export type StringWithAggregatesFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -186,6 +193,16 @@ export type EnumWorkspaceVisibilityWithAggregatesFilter<$PrismaModel = never> = 
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumWorkspaceVisibilityFilter<$PrismaModel>
   _max?: Prisma.NestedEnumWorkspaceVisibilityFilter<$PrismaModel>
+}
+
+export type EnumCameraViewNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.CameraView | Prisma.EnumCameraViewFieldRefInput<$PrismaModel> | null
+  in?: $Enums.CameraView[] | Prisma.ListEnumCameraViewFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.CameraView[] | Prisma.ListEnumCameraViewFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumCameraViewNullableWithAggregatesFilter<$PrismaModel> | $Enums.CameraView | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumCameraViewNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumCameraViewNullableFilter<$PrismaModel>
 }
 
 export type EnumWorkspaceRoleFilter<$PrismaModel = never> = {
@@ -438,6 +455,13 @@ export type NestedEnumWorkspaceVisibilityFilter<$PrismaModel = never> = {
   not?: Prisma.NestedEnumWorkspaceVisibilityFilter<$PrismaModel> | $Enums.WorkspaceVisibility
 }
 
+export type NestedEnumCameraViewNullableFilter<$PrismaModel = never> = {
+  equals?: $Enums.CameraView | Prisma.EnumCameraViewFieldRefInput<$PrismaModel> | null
+  in?: $Enums.CameraView[] | Prisma.ListEnumCameraViewFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.CameraView[] | Prisma.ListEnumCameraViewFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumCameraViewNullableFilter<$PrismaModel> | $Enums.CameraView | null
+}
+
 export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -483,6 +507,16 @@ export type NestedEnumWorkspaceVisibilityWithAggregatesFilter<$PrismaModel = nev
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumWorkspaceVisibilityFilter<$PrismaModel>
   _max?: Prisma.NestedEnumWorkspaceVisibilityFilter<$PrismaModel>
+}
+
+export type NestedEnumCameraViewNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.CameraView | Prisma.EnumCameraViewFieldRefInput<$PrismaModel> | null
+  in?: $Enums.CameraView[] | Prisma.ListEnumCameraViewFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.CameraView[] | Prisma.ListEnumCameraViewFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumCameraViewNullableWithAggregatesFilter<$PrismaModel> | $Enums.CameraView | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumCameraViewNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumCameraViewNullableFilter<$PrismaModel>
 }
 
 export type NestedEnumWorkspaceRoleFilter<$PrismaModel = never> = {

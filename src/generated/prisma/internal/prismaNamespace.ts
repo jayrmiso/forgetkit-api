@@ -836,6 +836,19 @@ export const WorkspaceScalarFieldEnum = {
   engineTarget: 'engineTarget',
   visibility: 'visibility',
   activeMilestone: 'activeMilestone',
+  gameTitle: 'gameTitle',
+  genre: 'genre',
+  cameraView: 'cameraView',
+  artDirection: 'artDirection',
+  targetResolution: 'targetResolution',
+  defaultBiome: 'defaultBiome',
+  defaultStyle: 'defaultStyle',
+  currentFocus: 'currentFocus',
+  nextMilestone: 'nextMilestone',
+  blockers: 'blockers',
+  storageRootPath: 'storageRootPath',
+  godotProjectPath: 'godotProjectPath',
+  namingConvention: 'namingConvention',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -995,6 +1008,20 @@ export type EnumWorkspaceVisibilityFieldRefInput<$PrismaModel> = FieldRefInputTy
  * Reference to a field of type 'WorkspaceVisibility[]'
  */
 export type ListEnumWorkspaceVisibilityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WorkspaceVisibility[]'>
+    
+
+
+/**
+ * Reference to a field of type 'CameraView'
+ */
+export type EnumCameraViewFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CameraView'>
+    
+
+
+/**
+ * Reference to a field of type 'CameraView[]'
+ */
+export type ListEnumCameraViewFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CameraView[]'>
     
 
 

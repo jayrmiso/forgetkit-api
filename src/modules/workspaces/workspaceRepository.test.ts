@@ -68,6 +68,19 @@ test("WorkspaceRepository creates hyphenless workspace ids", async () => {
               engineTarget: "godot",
               visibility: "private",
               activeMilestone: null,
+              gameTitle: null,
+              genre: null,
+              cameraView: null,
+              artDirection: null,
+              targetResolution: null,
+              defaultBiome: null,
+              defaultStyle: null,
+              currentFocus: null,
+              nextMilestone: null,
+              blockers: null,
+              storageRootPath: null,
+              godotProjectPath: null,
+              namingConvention: null,
               createdAt: now,
               updatedAt: now,
               members: [
@@ -114,6 +127,19 @@ test("WorkspaceRepository updates workspace settings for owners only", async () 
           engineTarget: "godot",
           visibility: "public",
           activeMilestone: null,
+          gameTitle: "Public Project",
+          genre: null,
+          cameraView: null,
+          artDirection: null,
+          targetResolution: null,
+          defaultBiome: null,
+          defaultStyle: null,
+          currentFocus: null,
+          nextMilestone: null,
+          blockers: null,
+          storageRootPath: null,
+          godotProjectPath: null,
+          namingConvention: null,
           createdAt: now,
           updatedAt: now,
           members: [],
@@ -125,7 +151,7 @@ test("WorkspaceRepository updates workspace settings for owners only", async () 
   await repository.updateByIdForOwner(
     "11111111111141118111111111111111",
     "33333333-3333-4333-8333-333333333333",
-    { name: "Public Project", visibility: "public" },
+    { name: "Public Project", visibility: "public", gameTitle: "Public Project" },
   );
 
   assert.deepEqual(calls[0], {
@@ -142,7 +168,7 @@ test("WorkspaceRepository updates workspace settings for owners only", async () 
     method: "update",
     args: {
       where: { id: "11111111111141118111111111111111" },
-      data: { name: "Public Project", visibility: "public" },
+      data: { name: "Public Project", visibility: "public", gameTitle: "Public Project" },
       include: { members: { where: { userProfileId: "33333333-3333-4333-8333-333333333333" } } },
     },
   });

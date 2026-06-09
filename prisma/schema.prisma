@@ -27,6 +27,19 @@ model Workspace {
   engineTarget    EngineTarget    @default(unknown)
   visibility      WorkspaceVisibility @default(private)
   activeMilestone String?
+  gameTitle       String?
+  genre           String?
+  cameraView      CameraView?
+  artDirection    String?
+  targetResolution String?
+  defaultBiome    String?
+  defaultStyle    String?
+  currentFocus    String?
+  nextMilestone   String?
+  blockers        String?
+  storageRootPath String?
+  godotProjectPath String?
+  namingConvention String?
   createdAt       DateTime        @default(now())
   updatedAt       DateTime        @updatedAt
 
@@ -94,6 +107,15 @@ enum WorkspaceVisibility {
   private
   unlisted
   public
+}
+
+enum CameraView {
+  unknown
+  top_down
+  side_scroller
+  isometric
+  first_person
+  third_person
 }
 
 enum BlueprintStatus {

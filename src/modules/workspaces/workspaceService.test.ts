@@ -14,6 +14,19 @@ function workspace(overrides: Partial<WorkspaceWithMember> = {}): WorkspaceWithM
     engineTarget: "godot",
     visibility: "private",
     activeMilestone: null,
+    gameTitle: null,
+    genre: null,
+    cameraView: null,
+    artDirection: null,
+    targetResolution: null,
+    defaultBiome: null,
+    defaultStyle: null,
+    currentFocus: null,
+    nextMilestone: null,
+    blockers: null,
+    storageRootPath: null,
+    godotProjectPath: null,
+    namingConvention: null,
     createdAt: now,
     updatedAt: now,
     members: [
@@ -47,6 +60,7 @@ test("WorkspaceService creates workspace DTO with owner role", async () => {
   assert.equal(result.role, "owner");
   assert.equal(result.engineTarget, "godot");
   assert.equal(result.visibility, "private");
+  assert.equal(result.gameTitle, null);
 });
 
 test("WorkspaceService returns 404 for inaccessible workspace", async () => {
@@ -72,17 +86,21 @@ test("WorkspaceService updates owner workspace settings", async () => {
       name: input.name ?? "Project Eclipse",
       engineTarget: input.engineTarget ?? "godot",
       visibility: input.visibility ?? "private",
+      gameTitle: input.gameTitle ?? "Project Eclipse",
+      currentFocus: input.currentFocus ?? null,
     }),
   });
 
   const result = await service.updateWorkspace(
     "33333333-3333-4333-8333-333333333333",
     "11111111111141118111111111111111",
-    { name: "Public Project", visibility: "public" },
+    { name: "Public Project", visibility: "public", gameTitle: "Eclipse", currentFocus: "Prototype combat loop" },
   );
 
   assert.equal(result.name, "Public Project");
   assert.equal(result.visibility, "public");
+  assert.equal(result.gameTitle, "Eclipse");
+  assert.equal(result.currentFocus, "Prototype combat loop");
 });
 
 test("WorkspaceService returns 404 for non-owner workspace update", async () => {

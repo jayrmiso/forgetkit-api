@@ -22,6 +22,29 @@ Authorization: Bearer <supabase_access_token>
 
 Workspace ids are canonical 32-character lowercase hex strings with no hyphens.
 
+## Workspace Settings
+
+Workspace settings support the current planning foundation fields:
+
+- `name`
+- `engineTarget`
+- `visibility`
+- `gameTitle`
+- `genre`
+- `cameraView`
+- `artDirection`
+- `targetResolution`
+- `defaultBiome`
+- `defaultStyle`
+- `currentFocus`
+- `nextMilestone`
+- `blockers`
+- `storageRootPath`
+- `godotProjectPath`
+- `namingConvention`
+
+String settings can be cleared by sending `null` or an empty string. Workspace updates remain owner-only.
+
 ## Search
 
 `GET /v1/search?query=<text>&types=user,workspace` searches authenticated discovery surfaces.

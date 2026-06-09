@@ -31,6 +31,19 @@ export type WorkspaceMinAggregateOutputType = {
   engineTarget: $Enums.EngineTarget | null
   visibility: $Enums.WorkspaceVisibility | null
   activeMilestone: string | null
+  gameTitle: string | null
+  genre: string | null
+  cameraView: $Enums.CameraView | null
+  artDirection: string | null
+  targetResolution: string | null
+  defaultBiome: string | null
+  defaultStyle: string | null
+  currentFocus: string | null
+  nextMilestone: string | null
+  blockers: string | null
+  storageRootPath: string | null
+  godotProjectPath: string | null
+  namingConvention: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -42,6 +55,19 @@ export type WorkspaceMaxAggregateOutputType = {
   engineTarget: $Enums.EngineTarget | null
   visibility: $Enums.WorkspaceVisibility | null
   activeMilestone: string | null
+  gameTitle: string | null
+  genre: string | null
+  cameraView: $Enums.CameraView | null
+  artDirection: string | null
+  targetResolution: string | null
+  defaultBiome: string | null
+  defaultStyle: string | null
+  currentFocus: string | null
+  nextMilestone: string | null
+  blockers: string | null
+  storageRootPath: string | null
+  godotProjectPath: string | null
+  namingConvention: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -53,6 +79,19 @@ export type WorkspaceCountAggregateOutputType = {
   engineTarget: number
   visibility: number
   activeMilestone: number
+  gameTitle: number
+  genre: number
+  cameraView: number
+  artDirection: number
+  targetResolution: number
+  defaultBiome: number
+  defaultStyle: number
+  currentFocus: number
+  nextMilestone: number
+  blockers: number
+  storageRootPath: number
+  godotProjectPath: number
+  namingConvention: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -66,6 +105,19 @@ export type WorkspaceMinAggregateInputType = {
   engineTarget?: true
   visibility?: true
   activeMilestone?: true
+  gameTitle?: true
+  genre?: true
+  cameraView?: true
+  artDirection?: true
+  targetResolution?: true
+  defaultBiome?: true
+  defaultStyle?: true
+  currentFocus?: true
+  nextMilestone?: true
+  blockers?: true
+  storageRootPath?: true
+  godotProjectPath?: true
+  namingConvention?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -77,6 +129,19 @@ export type WorkspaceMaxAggregateInputType = {
   engineTarget?: true
   visibility?: true
   activeMilestone?: true
+  gameTitle?: true
+  genre?: true
+  cameraView?: true
+  artDirection?: true
+  targetResolution?: true
+  defaultBiome?: true
+  defaultStyle?: true
+  currentFocus?: true
+  nextMilestone?: true
+  blockers?: true
+  storageRootPath?: true
+  godotProjectPath?: true
+  namingConvention?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -88,6 +153,19 @@ export type WorkspaceCountAggregateInputType = {
   engineTarget?: true
   visibility?: true
   activeMilestone?: true
+  gameTitle?: true
+  genre?: true
+  cameraView?: true
+  artDirection?: true
+  targetResolution?: true
+  defaultBiome?: true
+  defaultStyle?: true
+  currentFocus?: true
+  nextMilestone?: true
+  blockers?: true
+  storageRootPath?: true
+  godotProjectPath?: true
+  namingConvention?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -172,6 +250,19 @@ export type WorkspaceGroupByOutputType = {
   engineTarget: $Enums.EngineTarget
   visibility: $Enums.WorkspaceVisibility
   activeMilestone: string | null
+  gameTitle: string | null
+  genre: string | null
+  cameraView: $Enums.CameraView | null
+  artDirection: string | null
+  targetResolution: string | null
+  defaultBiome: string | null
+  defaultStyle: string | null
+  currentFocus: string | null
+  nextMilestone: string | null
+  blockers: string | null
+  storageRootPath: string | null
+  godotProjectPath: string | null
+  namingConvention: string | null
   createdAt: Date
   updatedAt: Date
   _count: WorkspaceCountAggregateOutputType | null
@@ -204,6 +295,19 @@ export type WorkspaceWhereInput = {
   engineTarget?: Prisma.EnumEngineTargetFilter<"Workspace"> | $Enums.EngineTarget
   visibility?: Prisma.EnumWorkspaceVisibilityFilter<"Workspace"> | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  gameTitle?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  genre?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  cameraView?: Prisma.EnumCameraViewNullableFilter<"Workspace"> | $Enums.CameraView | null
+  artDirection?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  targetResolution?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  defaultBiome?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  defaultStyle?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  currentFocus?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  nextMilestone?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  blockers?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  storageRootPath?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  godotProjectPath?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  namingConvention?: Prisma.StringNullableFilter<"Workspace"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Workspace"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Workspace"> | Date | string
   members?: Prisma.WorkspaceMemberListRelationFilter
@@ -218,6 +322,19 @@ export type WorkspaceOrderByWithRelationInput = {
   engineTarget?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   activeMilestone?: Prisma.SortOrderInput | Prisma.SortOrder
+  gameTitle?: Prisma.SortOrderInput | Prisma.SortOrder
+  genre?: Prisma.SortOrderInput | Prisma.SortOrder
+  cameraView?: Prisma.SortOrderInput | Prisma.SortOrder
+  artDirection?: Prisma.SortOrderInput | Prisma.SortOrder
+  targetResolution?: Prisma.SortOrderInput | Prisma.SortOrder
+  defaultBiome?: Prisma.SortOrderInput | Prisma.SortOrder
+  defaultStyle?: Prisma.SortOrderInput | Prisma.SortOrder
+  currentFocus?: Prisma.SortOrderInput | Prisma.SortOrder
+  nextMilestone?: Prisma.SortOrderInput | Prisma.SortOrder
+  blockers?: Prisma.SortOrderInput | Prisma.SortOrder
+  storageRootPath?: Prisma.SortOrderInput | Prisma.SortOrder
+  godotProjectPath?: Prisma.SortOrderInput | Prisma.SortOrder
+  namingConvention?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   members?: Prisma.WorkspaceMemberOrderByRelationAggregateInput
@@ -235,6 +352,19 @@ export type WorkspaceWhereUniqueInput = Prisma.AtLeast<{
   engineTarget?: Prisma.EnumEngineTargetFilter<"Workspace"> | $Enums.EngineTarget
   visibility?: Prisma.EnumWorkspaceVisibilityFilter<"Workspace"> | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  gameTitle?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  genre?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  cameraView?: Prisma.EnumCameraViewNullableFilter<"Workspace"> | $Enums.CameraView | null
+  artDirection?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  targetResolution?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  defaultBiome?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  defaultStyle?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  currentFocus?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  nextMilestone?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  blockers?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  storageRootPath?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  godotProjectPath?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  namingConvention?: Prisma.StringNullableFilter<"Workspace"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Workspace"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Workspace"> | Date | string
   members?: Prisma.WorkspaceMemberListRelationFilter
@@ -249,6 +379,19 @@ export type WorkspaceOrderByWithAggregationInput = {
   engineTarget?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   activeMilestone?: Prisma.SortOrderInput | Prisma.SortOrder
+  gameTitle?: Prisma.SortOrderInput | Prisma.SortOrder
+  genre?: Prisma.SortOrderInput | Prisma.SortOrder
+  cameraView?: Prisma.SortOrderInput | Prisma.SortOrder
+  artDirection?: Prisma.SortOrderInput | Prisma.SortOrder
+  targetResolution?: Prisma.SortOrderInput | Prisma.SortOrder
+  defaultBiome?: Prisma.SortOrderInput | Prisma.SortOrder
+  defaultStyle?: Prisma.SortOrderInput | Prisma.SortOrder
+  currentFocus?: Prisma.SortOrderInput | Prisma.SortOrder
+  nextMilestone?: Prisma.SortOrderInput | Prisma.SortOrder
+  blockers?: Prisma.SortOrderInput | Prisma.SortOrder
+  storageRootPath?: Prisma.SortOrderInput | Prisma.SortOrder
+  godotProjectPath?: Prisma.SortOrderInput | Prisma.SortOrder
+  namingConvention?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.WorkspaceCountOrderByAggregateInput
@@ -266,6 +409,19 @@ export type WorkspaceScalarWhereWithAggregatesInput = {
   engineTarget?: Prisma.EnumEngineTargetWithAggregatesFilter<"Workspace"> | $Enums.EngineTarget
   visibility?: Prisma.EnumWorkspaceVisibilityWithAggregatesFilter<"Workspace"> | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
+  gameTitle?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
+  genre?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
+  cameraView?: Prisma.EnumCameraViewNullableWithAggregatesFilter<"Workspace"> | $Enums.CameraView | null
+  artDirection?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
+  targetResolution?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
+  defaultBiome?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
+  defaultStyle?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
+  currentFocus?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
+  nextMilestone?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
+  blockers?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
+  storageRootPath?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
+  godotProjectPath?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
+  namingConvention?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Workspace"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Workspace"> | Date | string
 }
@@ -277,6 +433,19 @@ export type WorkspaceCreateInput = {
   engineTarget?: $Enums.EngineTarget
   visibility?: $Enums.WorkspaceVisibility
   activeMilestone?: string | null
+  gameTitle?: string | null
+  genre?: string | null
+  cameraView?: $Enums.CameraView | null
+  artDirection?: string | null
+  targetResolution?: string | null
+  defaultBiome?: string | null
+  defaultStyle?: string | null
+  currentFocus?: string | null
+  nextMilestone?: string | null
+  blockers?: string | null
+  storageRootPath?: string | null
+  godotProjectPath?: string | null
+  namingConvention?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   members?: Prisma.WorkspaceMemberCreateNestedManyWithoutWorkspaceInput
@@ -291,6 +460,19 @@ export type WorkspaceUncheckedCreateInput = {
   engineTarget?: $Enums.EngineTarget
   visibility?: $Enums.WorkspaceVisibility
   activeMilestone?: string | null
+  gameTitle?: string | null
+  genre?: string | null
+  cameraView?: $Enums.CameraView | null
+  artDirection?: string | null
+  targetResolution?: string | null
+  defaultBiome?: string | null
+  defaultStyle?: string | null
+  currentFocus?: string | null
+  nextMilestone?: string | null
+  blockers?: string | null
+  storageRootPath?: string | null
+  godotProjectPath?: string | null
+  namingConvention?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   members?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutWorkspaceInput
@@ -305,6 +487,19 @@ export type WorkspaceUpdateInput = {
   engineTarget?: Prisma.EnumEngineTargetFieldUpdateOperationsInput | $Enums.EngineTarget
   visibility?: Prisma.EnumWorkspaceVisibilityFieldUpdateOperationsInput | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gameTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  genre?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cameraView?: Prisma.NullableEnumCameraViewFieldUpdateOperationsInput | $Enums.CameraView | null
+  artDirection?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  targetResolution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultBiome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultStyle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currentFocus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nextMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  blockers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  storageRootPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  godotProjectPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  namingConvention?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   members?: Prisma.WorkspaceMemberUpdateManyWithoutWorkspaceNestedInput
@@ -319,6 +514,19 @@ export type WorkspaceUncheckedUpdateInput = {
   engineTarget?: Prisma.EnumEngineTargetFieldUpdateOperationsInput | $Enums.EngineTarget
   visibility?: Prisma.EnumWorkspaceVisibilityFieldUpdateOperationsInput | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gameTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  genre?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cameraView?: Prisma.NullableEnumCameraViewFieldUpdateOperationsInput | $Enums.CameraView | null
+  artDirection?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  targetResolution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultBiome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultStyle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currentFocus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nextMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  blockers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  storageRootPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  godotProjectPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  namingConvention?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   members?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutWorkspaceNestedInput
@@ -333,6 +541,19 @@ export type WorkspaceCreateManyInput = {
   engineTarget?: $Enums.EngineTarget
   visibility?: $Enums.WorkspaceVisibility
   activeMilestone?: string | null
+  gameTitle?: string | null
+  genre?: string | null
+  cameraView?: $Enums.CameraView | null
+  artDirection?: string | null
+  targetResolution?: string | null
+  defaultBiome?: string | null
+  defaultStyle?: string | null
+  currentFocus?: string | null
+  nextMilestone?: string | null
+  blockers?: string | null
+  storageRootPath?: string | null
+  godotProjectPath?: string | null
+  namingConvention?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -344,6 +565,19 @@ export type WorkspaceUpdateManyMutationInput = {
   engineTarget?: Prisma.EnumEngineTargetFieldUpdateOperationsInput | $Enums.EngineTarget
   visibility?: Prisma.EnumWorkspaceVisibilityFieldUpdateOperationsInput | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gameTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  genre?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cameraView?: Prisma.NullableEnumCameraViewFieldUpdateOperationsInput | $Enums.CameraView | null
+  artDirection?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  targetResolution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultBiome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultStyle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currentFocus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nextMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  blockers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  storageRootPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  godotProjectPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  namingConvention?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -355,6 +589,19 @@ export type WorkspaceUncheckedUpdateManyInput = {
   engineTarget?: Prisma.EnumEngineTargetFieldUpdateOperationsInput | $Enums.EngineTarget
   visibility?: Prisma.EnumWorkspaceVisibilityFieldUpdateOperationsInput | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gameTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  genre?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cameraView?: Prisma.NullableEnumCameraViewFieldUpdateOperationsInput | $Enums.CameraView | null
+  artDirection?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  targetResolution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultBiome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultStyle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currentFocus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nextMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  blockers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  storageRootPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  godotProjectPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  namingConvention?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -366,6 +613,19 @@ export type WorkspaceCountOrderByAggregateInput = {
   engineTarget?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   activeMilestone?: Prisma.SortOrder
+  gameTitle?: Prisma.SortOrder
+  genre?: Prisma.SortOrder
+  cameraView?: Prisma.SortOrder
+  artDirection?: Prisma.SortOrder
+  targetResolution?: Prisma.SortOrder
+  defaultBiome?: Prisma.SortOrder
+  defaultStyle?: Prisma.SortOrder
+  currentFocus?: Prisma.SortOrder
+  nextMilestone?: Prisma.SortOrder
+  blockers?: Prisma.SortOrder
+  storageRootPath?: Prisma.SortOrder
+  godotProjectPath?: Prisma.SortOrder
+  namingConvention?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -377,6 +637,19 @@ export type WorkspaceMaxOrderByAggregateInput = {
   engineTarget?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   activeMilestone?: Prisma.SortOrder
+  gameTitle?: Prisma.SortOrder
+  genre?: Prisma.SortOrder
+  cameraView?: Prisma.SortOrder
+  artDirection?: Prisma.SortOrder
+  targetResolution?: Prisma.SortOrder
+  defaultBiome?: Prisma.SortOrder
+  defaultStyle?: Prisma.SortOrder
+  currentFocus?: Prisma.SortOrder
+  nextMilestone?: Prisma.SortOrder
+  blockers?: Prisma.SortOrder
+  storageRootPath?: Prisma.SortOrder
+  godotProjectPath?: Prisma.SortOrder
+  namingConvention?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -388,6 +661,19 @@ export type WorkspaceMinOrderByAggregateInput = {
   engineTarget?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   activeMilestone?: Prisma.SortOrder
+  gameTitle?: Prisma.SortOrder
+  genre?: Prisma.SortOrder
+  cameraView?: Prisma.SortOrder
+  artDirection?: Prisma.SortOrder
+  targetResolution?: Prisma.SortOrder
+  defaultBiome?: Prisma.SortOrder
+  defaultStyle?: Prisma.SortOrder
+  currentFocus?: Prisma.SortOrder
+  nextMilestone?: Prisma.SortOrder
+  blockers?: Prisma.SortOrder
+  storageRootPath?: Prisma.SortOrder
+  godotProjectPath?: Prisma.SortOrder
+  namingConvention?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -407,6 +693,10 @@ export type EnumEngineTargetFieldUpdateOperationsInput = {
 
 export type EnumWorkspaceVisibilityFieldUpdateOperationsInput = {
   set?: $Enums.WorkspaceVisibility
+}
+
+export type NullableEnumCameraViewFieldUpdateOperationsInput = {
+  set?: $Enums.CameraView | null
 }
 
 export type WorkspaceCreateNestedOneWithoutMembersInput = {
@@ -458,6 +748,19 @@ export type WorkspaceCreateWithoutMembersInput = {
   engineTarget?: $Enums.EngineTarget
   visibility?: $Enums.WorkspaceVisibility
   activeMilestone?: string | null
+  gameTitle?: string | null
+  genre?: string | null
+  cameraView?: $Enums.CameraView | null
+  artDirection?: string | null
+  targetResolution?: string | null
+  defaultBiome?: string | null
+  defaultStyle?: string | null
+  currentFocus?: string | null
+  nextMilestone?: string | null
+  blockers?: string | null
+  storageRootPath?: string | null
+  godotProjectPath?: string | null
+  namingConvention?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   gameConcepts?: Prisma.GameConceptCreateNestedManyWithoutWorkspaceInput
@@ -471,6 +774,19 @@ export type WorkspaceUncheckedCreateWithoutMembersInput = {
   engineTarget?: $Enums.EngineTarget
   visibility?: $Enums.WorkspaceVisibility
   activeMilestone?: string | null
+  gameTitle?: string | null
+  genre?: string | null
+  cameraView?: $Enums.CameraView | null
+  artDirection?: string | null
+  targetResolution?: string | null
+  defaultBiome?: string | null
+  defaultStyle?: string | null
+  currentFocus?: string | null
+  nextMilestone?: string | null
+  blockers?: string | null
+  storageRootPath?: string | null
+  godotProjectPath?: string | null
+  namingConvention?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   gameConcepts?: Prisma.GameConceptUncheckedCreateNestedManyWithoutWorkspaceInput
@@ -500,6 +816,19 @@ export type WorkspaceUpdateWithoutMembersInput = {
   engineTarget?: Prisma.EnumEngineTargetFieldUpdateOperationsInput | $Enums.EngineTarget
   visibility?: Prisma.EnumWorkspaceVisibilityFieldUpdateOperationsInput | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gameTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  genre?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cameraView?: Prisma.NullableEnumCameraViewFieldUpdateOperationsInput | $Enums.CameraView | null
+  artDirection?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  targetResolution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultBiome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultStyle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currentFocus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nextMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  blockers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  storageRootPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  godotProjectPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  namingConvention?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gameConcepts?: Prisma.GameConceptUpdateManyWithoutWorkspaceNestedInput
@@ -513,6 +842,19 @@ export type WorkspaceUncheckedUpdateWithoutMembersInput = {
   engineTarget?: Prisma.EnumEngineTargetFieldUpdateOperationsInput | $Enums.EngineTarget
   visibility?: Prisma.EnumWorkspaceVisibilityFieldUpdateOperationsInput | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gameTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  genre?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cameraView?: Prisma.NullableEnumCameraViewFieldUpdateOperationsInput | $Enums.CameraView | null
+  artDirection?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  targetResolution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultBiome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultStyle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currentFocus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nextMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  blockers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  storageRootPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  godotProjectPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  namingConvention?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gameConcepts?: Prisma.GameConceptUncheckedUpdateManyWithoutWorkspaceNestedInput
@@ -526,6 +868,19 @@ export type WorkspaceCreateWithoutGameConceptsInput = {
   engineTarget?: $Enums.EngineTarget
   visibility?: $Enums.WorkspaceVisibility
   activeMilestone?: string | null
+  gameTitle?: string | null
+  genre?: string | null
+  cameraView?: $Enums.CameraView | null
+  artDirection?: string | null
+  targetResolution?: string | null
+  defaultBiome?: string | null
+  defaultStyle?: string | null
+  currentFocus?: string | null
+  nextMilestone?: string | null
+  blockers?: string | null
+  storageRootPath?: string | null
+  godotProjectPath?: string | null
+  namingConvention?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   members?: Prisma.WorkspaceMemberCreateNestedManyWithoutWorkspaceInput
@@ -539,6 +894,19 @@ export type WorkspaceUncheckedCreateWithoutGameConceptsInput = {
   engineTarget?: $Enums.EngineTarget
   visibility?: $Enums.WorkspaceVisibility
   activeMilestone?: string | null
+  gameTitle?: string | null
+  genre?: string | null
+  cameraView?: $Enums.CameraView | null
+  artDirection?: string | null
+  targetResolution?: string | null
+  defaultBiome?: string | null
+  defaultStyle?: string | null
+  currentFocus?: string | null
+  nextMilestone?: string | null
+  blockers?: string | null
+  storageRootPath?: string | null
+  godotProjectPath?: string | null
+  namingConvention?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   members?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutWorkspaceInput
@@ -568,6 +936,19 @@ export type WorkspaceUpdateWithoutGameConceptsInput = {
   engineTarget?: Prisma.EnumEngineTargetFieldUpdateOperationsInput | $Enums.EngineTarget
   visibility?: Prisma.EnumWorkspaceVisibilityFieldUpdateOperationsInput | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gameTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  genre?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cameraView?: Prisma.NullableEnumCameraViewFieldUpdateOperationsInput | $Enums.CameraView | null
+  artDirection?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  targetResolution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultBiome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultStyle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currentFocus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nextMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  blockers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  storageRootPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  godotProjectPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  namingConvention?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   members?: Prisma.WorkspaceMemberUpdateManyWithoutWorkspaceNestedInput
@@ -581,6 +962,19 @@ export type WorkspaceUncheckedUpdateWithoutGameConceptsInput = {
   engineTarget?: Prisma.EnumEngineTargetFieldUpdateOperationsInput | $Enums.EngineTarget
   visibility?: Prisma.EnumWorkspaceVisibilityFieldUpdateOperationsInput | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gameTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  genre?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cameraView?: Prisma.NullableEnumCameraViewFieldUpdateOperationsInput | $Enums.CameraView | null
+  artDirection?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  targetResolution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultBiome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultStyle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currentFocus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nextMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  blockers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  storageRootPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  godotProjectPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  namingConvention?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   members?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutWorkspaceNestedInput
@@ -594,6 +988,19 @@ export type WorkspaceCreateWithoutGameBlueprintsInput = {
   engineTarget?: $Enums.EngineTarget
   visibility?: $Enums.WorkspaceVisibility
   activeMilestone?: string | null
+  gameTitle?: string | null
+  genre?: string | null
+  cameraView?: $Enums.CameraView | null
+  artDirection?: string | null
+  targetResolution?: string | null
+  defaultBiome?: string | null
+  defaultStyle?: string | null
+  currentFocus?: string | null
+  nextMilestone?: string | null
+  blockers?: string | null
+  storageRootPath?: string | null
+  godotProjectPath?: string | null
+  namingConvention?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   members?: Prisma.WorkspaceMemberCreateNestedManyWithoutWorkspaceInput
@@ -607,6 +1014,19 @@ export type WorkspaceUncheckedCreateWithoutGameBlueprintsInput = {
   engineTarget?: $Enums.EngineTarget
   visibility?: $Enums.WorkspaceVisibility
   activeMilestone?: string | null
+  gameTitle?: string | null
+  genre?: string | null
+  cameraView?: $Enums.CameraView | null
+  artDirection?: string | null
+  targetResolution?: string | null
+  defaultBiome?: string | null
+  defaultStyle?: string | null
+  currentFocus?: string | null
+  nextMilestone?: string | null
+  blockers?: string | null
+  storageRootPath?: string | null
+  godotProjectPath?: string | null
+  namingConvention?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   members?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutWorkspaceInput
@@ -636,6 +1056,19 @@ export type WorkspaceUpdateWithoutGameBlueprintsInput = {
   engineTarget?: Prisma.EnumEngineTargetFieldUpdateOperationsInput | $Enums.EngineTarget
   visibility?: Prisma.EnumWorkspaceVisibilityFieldUpdateOperationsInput | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gameTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  genre?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cameraView?: Prisma.NullableEnumCameraViewFieldUpdateOperationsInput | $Enums.CameraView | null
+  artDirection?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  targetResolution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultBiome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultStyle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currentFocus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nextMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  blockers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  storageRootPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  godotProjectPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  namingConvention?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   members?: Prisma.WorkspaceMemberUpdateManyWithoutWorkspaceNestedInput
@@ -649,6 +1082,19 @@ export type WorkspaceUncheckedUpdateWithoutGameBlueprintsInput = {
   engineTarget?: Prisma.EnumEngineTargetFieldUpdateOperationsInput | $Enums.EngineTarget
   visibility?: Prisma.EnumWorkspaceVisibilityFieldUpdateOperationsInput | $Enums.WorkspaceVisibility
   activeMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gameTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  genre?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cameraView?: Prisma.NullableEnumCameraViewFieldUpdateOperationsInput | $Enums.CameraView | null
+  artDirection?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  targetResolution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultBiome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultStyle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currentFocus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nextMilestone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  blockers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  storageRootPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  godotProjectPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  namingConvention?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   members?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutWorkspaceNestedInput
@@ -711,6 +1157,19 @@ export type WorkspaceSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   engineTarget?: boolean
   visibility?: boolean
   activeMilestone?: boolean
+  gameTitle?: boolean
+  genre?: boolean
+  cameraView?: boolean
+  artDirection?: boolean
+  targetResolution?: boolean
+  defaultBiome?: boolean
+  defaultStyle?: boolean
+  currentFocus?: boolean
+  nextMilestone?: boolean
+  blockers?: boolean
+  storageRootPath?: boolean
+  godotProjectPath?: boolean
+  namingConvention?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   members?: boolean | Prisma.Workspace$membersArgs<ExtArgs>
@@ -726,6 +1185,19 @@ export type WorkspaceSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   engineTarget?: boolean
   visibility?: boolean
   activeMilestone?: boolean
+  gameTitle?: boolean
+  genre?: boolean
+  cameraView?: boolean
+  artDirection?: boolean
+  targetResolution?: boolean
+  defaultBiome?: boolean
+  defaultStyle?: boolean
+  currentFocus?: boolean
+  nextMilestone?: boolean
+  blockers?: boolean
+  storageRootPath?: boolean
+  godotProjectPath?: boolean
+  namingConvention?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["workspace"]>
@@ -737,6 +1209,19 @@ export type WorkspaceSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   engineTarget?: boolean
   visibility?: boolean
   activeMilestone?: boolean
+  gameTitle?: boolean
+  genre?: boolean
+  cameraView?: boolean
+  artDirection?: boolean
+  targetResolution?: boolean
+  defaultBiome?: boolean
+  defaultStyle?: boolean
+  currentFocus?: boolean
+  nextMilestone?: boolean
+  blockers?: boolean
+  storageRootPath?: boolean
+  godotProjectPath?: boolean
+  namingConvention?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["workspace"]>
@@ -748,11 +1233,24 @@ export type WorkspaceSelectScalar = {
   engineTarget?: boolean
   visibility?: boolean
   activeMilestone?: boolean
+  gameTitle?: boolean
+  genre?: boolean
+  cameraView?: boolean
+  artDirection?: boolean
+  targetResolution?: boolean
+  defaultBiome?: boolean
+  defaultStyle?: boolean
+  currentFocus?: boolean
+  nextMilestone?: boolean
+  blockers?: boolean
+  storageRootPath?: boolean
+  godotProjectPath?: boolean
+  namingConvention?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type WorkspaceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "status" | "engineTarget" | "visibility" | "activeMilestone" | "createdAt" | "updatedAt", ExtArgs["result"]["workspace"]>
+export type WorkspaceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "status" | "engineTarget" | "visibility" | "activeMilestone" | "gameTitle" | "genre" | "cameraView" | "artDirection" | "targetResolution" | "defaultBiome" | "defaultStyle" | "currentFocus" | "nextMilestone" | "blockers" | "storageRootPath" | "godotProjectPath" | "namingConvention" | "createdAt" | "updatedAt", ExtArgs["result"]["workspace"]>
 export type WorkspaceInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   members?: boolean | Prisma.Workspace$membersArgs<ExtArgs>
   gameConcepts?: boolean | Prisma.Workspace$gameConceptsArgs<ExtArgs>
@@ -776,6 +1274,19 @@ export type $WorkspacePayload<ExtArgs extends runtime.Types.Extensions.InternalA
     engineTarget: $Enums.EngineTarget
     visibility: $Enums.WorkspaceVisibility
     activeMilestone: string | null
+    gameTitle: string | null
+    genre: string | null
+    cameraView: $Enums.CameraView | null
+    artDirection: string | null
+    targetResolution: string | null
+    defaultBiome: string | null
+    defaultStyle: string | null
+    currentFocus: string | null
+    nextMilestone: string | null
+    blockers: string | null
+    storageRootPath: string | null
+    godotProjectPath: string | null
+    namingConvention: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["workspace"]>
@@ -1210,6 +1721,19 @@ export interface WorkspaceFieldRefs {
   readonly engineTarget: Prisma.FieldRef<"Workspace", 'EngineTarget'>
   readonly visibility: Prisma.FieldRef<"Workspace", 'WorkspaceVisibility'>
   readonly activeMilestone: Prisma.FieldRef<"Workspace", 'String'>
+  readonly gameTitle: Prisma.FieldRef<"Workspace", 'String'>
+  readonly genre: Prisma.FieldRef<"Workspace", 'String'>
+  readonly cameraView: Prisma.FieldRef<"Workspace", 'CameraView'>
+  readonly artDirection: Prisma.FieldRef<"Workspace", 'String'>
+  readonly targetResolution: Prisma.FieldRef<"Workspace", 'String'>
+  readonly defaultBiome: Prisma.FieldRef<"Workspace", 'String'>
+  readonly defaultStyle: Prisma.FieldRef<"Workspace", 'String'>
+  readonly currentFocus: Prisma.FieldRef<"Workspace", 'String'>
+  readonly nextMilestone: Prisma.FieldRef<"Workspace", 'String'>
+  readonly blockers: Prisma.FieldRef<"Workspace", 'String'>
+  readonly storageRootPath: Prisma.FieldRef<"Workspace", 'String'>
+  readonly godotProjectPath: Prisma.FieldRef<"Workspace", 'String'>
+  readonly namingConvention: Prisma.FieldRef<"Workspace", 'String'>
   readonly createdAt: Prisma.FieldRef<"Workspace", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Workspace", 'DateTime'>
 }

@@ -8,6 +8,19 @@ export type WorkspaceWithMember = {
   engineTarget: "unknown" | "godot";
   visibility: "private" | "unlisted" | "public";
   activeMilestone: string | null;
+  gameTitle: string | null;
+  genre: string | null;
+  cameraView: "unknown" | "top_down" | "side_scroller" | "isometric" | "first_person" | "third_person" | null;
+  artDirection: string | null;
+  targetResolution: string | null;
+  defaultBiome: string | null;
+  defaultStyle: string | null;
+  currentFocus: string | null;
+  nextMilestone: string | null;
+  blockers: string | null;
+  storageRootPath: string | null;
+  godotProjectPath: string | null;
+  namingConvention: string | null;
   createdAt: Date;
   updatedAt: Date;
   members: Array<{ role: "owner" | "member" }>;
@@ -30,6 +43,19 @@ function toDto(workspace: WorkspaceWithMember): WorkspaceDto {
     engineTarget: workspace.engineTarget,
     visibility: workspace.visibility,
     activeMilestone: workspace.activeMilestone,
+    gameTitle: workspace.gameTitle,
+    genre: workspace.genre,
+    cameraView: workspace.cameraView,
+    artDirection: workspace.artDirection,
+    targetResolution: workspace.targetResolution,
+    defaultBiome: workspace.defaultBiome,
+    defaultStyle: workspace.defaultStyle,
+    currentFocus: workspace.currentFocus,
+    nextMilestone: workspace.nextMilestone,
+    blockers: workspace.blockers,
+    storageRootPath: workspace.storageRootPath,
+    godotProjectPath: workspace.godotProjectPath,
+    namingConvention: workspace.namingConvention,
     role: member?.role ?? "member",
     createdAt: workspace.createdAt.toISOString(),
     updatedAt: workspace.updatedAt.toISOString(),
